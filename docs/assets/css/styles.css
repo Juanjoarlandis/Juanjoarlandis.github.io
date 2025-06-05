@@ -27,7 +27,7 @@ main {
 
 @media (min-width: 576px) {
   main {
-    font-size: 18px;
+    font-size: 8px;
     width: 90%; } }
 @media (min-width: 768px) {
   main {
