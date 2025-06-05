@@ -104,7 +104,7 @@ body {
   src: url("../webfonts/hack-italic-subset.woff2") format("woff2"); }
 body {
   font-family: "hack", monospace;
-  font-size: 16px;
+  font-size: 8px;
   font-weight: 400;
   background-color: #1e1e1e;
   color: #d4d4d4; }

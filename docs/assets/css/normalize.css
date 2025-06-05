@@ -1,239 +1,349 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Currículum – Juan José Arlandis Ocaña</title>
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
-  <!-- Íconos y favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
-  <link rel="manifest" href="assets/site.webmanifest" />
+/* Document
+   ========================================================================== */
 
-  <!-- Normalize.css para reset de estilos -->
-  <link rel="stylesheet" href="assets/css/normalize.css" />
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
 
-  <!-- Open Color (variables de color) -->
-  <link rel="stylesheet" href="assets/css/open-color.css" />
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
 
-  <!-- Hoja de estilos principal compilada (Sass → CSS) -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+/* Sections
+   ========================================================================== */
 
-  <!-- Typed.js (para efecto "typed" en el resumen) -->
-  <script src="assets/js/typed.umd.js"></script>
+/**
+ * Remove the margin in all browsers.
+ */
 
-  <!-- Estilos adicionales específicos para la imagen de perfil -->
-  <style>
-    /* ================================
-       Imagen de perfil
-       ================================ */
-    .perfil-container {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
+body {
+  margin: 0;
+}
 
-    .perfil-img {
-      display: block;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border: 3px solid var(--oc-green-4); /* Color de borde igual al color de claves */
-      border-radius: 0;                    /* Sin esquinas redondeadas */
-      margin: 0 auto;
-    }
-  </style>
-</head>
+/**
+ * Render the `main` element consistently in IE.
+ */
 
-<body>
-  <main>
-    <!-- =====================================
-         Bloque: Foto de perfil (centrada)
-         ===================================== -->
-    <div class="perfil-container">
-      <img
-        src="assets/images/perfil.jpg"
-        alt="Foto de perfil – Juan José Arlandis"
-        class="perfil-img"
-      />
-    </div>
+main {
+  display: block;
+}
 
-    <!-- =====================================
-         Bloque: Contenedor JSON (estilo theme)
-         ===================================== -->
-    <div id="json">
-      <!-- ===== PERFIL ===== -->
-      <div class="comment ms">// ===== PERFIL =====</div>
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
 
-      <div class="my ms">
-        "<span class="key">Nombre</span>":
-        "<span class="value">Juan José Arlandis Ocaña</span>",
-      </div>
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
 
-      <div class="my ms">
-        "<span class="key">Título</span>":
-        "<span class="value">Estudiante de Ingeniería de Telecomunicaciones — ETSIT-UPM</span>",
-      </div>
+/* Grouping content
+   ========================================================================== */
 
-      <div class="my ms">
-        "<span class="key">Contacto</span>": [
-          <p class="ms">
-            "<span class="key">Email</span>":
-            "<a class="value" href="mailto:contact@juanjoarlandis.com" target="_blank">contact@juanjoarlandis.com</a>",
-          </p>
-          <p class="ms">
-            "<span class="key">Fecha de nacimiento</span>":
-            "<span class="value">4 may 2000</span>",
-          </p>
-          <p class="ms">
-            "<span class="key">Nacionalidad</span>":
-            "<span class="value">Español</span>",
-          </p>
-          <p class="ms">
-            "<span class="key">LinkedIn</span>":
-            "<a class="value" href="https://www.linkedin.com/in/juan-jose-arlandis/" target="_blank">juan-jose-arlandis</a>"
-          </p>
-        ],
-      </div>
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
 
-      <!-- ===== RESUMEN (typed.js) ===== -->
-      <div class="comment ms">// ===== RESUMEN (typed.js) =====</div>
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
 
-      <div class="my ms">
-        <div id="strings">
-          <span>Aspirante a ingeniero Telco con pasión por Blockchain</span>
-          <span>Meta ▸ combinar Telecomunicaciones + Blockchain</span>
-          <span>Autodidacta de IA y tecnologías descentralizadas</span>
-        </div>
-        "<span class="key">Resumen</span>":
-        "<span class="value"><span id="typed"></span></span>",
-      </div>
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
 
-      <!-- ===== HABILIDADES ===== -->
-      <div class="comment ms">// ===== HABILIDADES =====</div>
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
 
-      <div class="my ms">
-        "<span class="key">Habilidades</span>": [
-        <p class="ms">"<span class="value">Python</span>",</p>
-        <p class="ms">"<span class="value">MATLAB</span>",</p>
-        <p class="ms">"<span class="value">C++</span>",</p>
-        <p class="ms">"<span class="value">Solidity</span>",</p>
-        <p class="ms">"<span class="value">React / React Native</span>",</p>
-        <p class="ms">"<span class="value">Swift</span>",</p>
-        <p class="ms">"<span class="value">Maven / Gradle</span>",</p>
-        <p class="ms">"<span class="value">Inteligencia Artificial</span>",</p>
-        <p class="ms">"<span class="value">Teamwork</span>",</p>
-        <p class="ms">"<span class="value">Troubleshooting</span>",</p>
-        <p class="ms">"<span class="value">Problem-solving</span>",</p>
-        <p class="ms">"<span class="value">Comunicación</span>",</p>
-        <p class="ms">"<span class="value">Customer Service</span>",</p>
-        <p class="ms">"<span class="value">Social Media</span>",</p>
-        <p class="ms">"<span class="value">Public Speaking</span>"</p>
-        ],
-      </div>
+/* Text-level semantics
+   ========================================================================== */
 
-      <!-- ===== IDIOMAS ===== -->
-      <div class="comment ms">// ===== IDIOMAS =====</div>
+/**
+ * Remove the gray background on active links in IE 10.
+ */
 
-      <div class="my ms">
-        "<span class="key">Idiomas</span>": [
-        <p class="ms">
-          "<span class="key">Inglés</span>":
-          "<span class="value">Nivel intermedio (B2 Cambridge FIRST)</span>",
-        </p>
-        <p class="ms">
-          "<span class="key">Francés</span>":
-          "<span class="value">Nivel básico</span>"
-        </p>
-        ],
-      </div>
+a {
+  background-color: transparent;
+}
 
-      <!-- ===== EXPERIENCIA ===== -->
-      <div class="comment ms">// ===== EXPERIENCIA =====</div>
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
 
-      <div class="my ms">
-        "<span class="key">Experiencia</span>": [
-        <p class="ms">
-          "<span class="key">Profesor de Blockchain y Criptomonedas</span>":
-          "<span class="value">Tradenado.net — Ene 2022 – Sep 2022</span>",
-        </p>
-        <p class="ms">
-          "<span class="key">Creador de contenido en Twitter</span>":
-          "<span class="value">Cuenta personal — 2020 – Ene 2023</span>",
-        </p>
-        <p class="ms">
-          "<span class="key">Inversor en Criptomonedas</span>":
-          "<span class="value">Freelancer — 2019</span>",
-        </p>
-        <p class="ms">
-          "<span class="key">Emprendedor en Comercio Electrónico</span>":
-          "<span class="value">Freelancer — 2019 – 2020</span>",
-        </p>
-        <p class="ms">
-          "<span class="key">Fotógrafo</span>":
-          "<span class="value">Freelancer — 2018</span>"
-        </p>
-        ],
-      </div>
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
 
-      <!-- ===== EDUCACIÓN ===== -->
-      <div class="comment ms">// ===== EDUCACIÓN =====</div>
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
 
-      <div class="my ms">
-        "<span class="key">Educación</span>": [
-        <p class="ms">
-          "<span class="key">Ingeniería de Telecomunicaciones</span>":
-          "<span class="value">Universidad Politécnica de Madrid (ETSIT) — 2018 – Actualidad</span>",
-        </p>
-        <p class="ms">
-          "<span class="key">Bachillerato Ciencias</span>":
-          "<span class="value">Colegio Virgen de Mirasierra — 2016 – Jun 2018 · Nota media 9</span>"
-        </p>
-        ],
-      </div>
+b,
+strong {
+  font-weight: bolder;
+}
 
-      <!-- ===== PROYECTOS ===== -->
-      <div class="comment ms">// ===== PROYECTOS =====</div>
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
 
-      <div class="my ms">
-        "<span class="key">Proyectos</span>": [
-        <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
-        <p class="ms">"<span class="value">Investigación de IA en el ecosistema Bittensor</span>",</p>
-        <p class="ms">"<span class="value">Programación en Solidity y despliegue de smart-contracts</span>",</p>
-        <p class="ms">"<span class="value">Diseño de tiendas Shopify (modelo Dropshipping)</span>",</p>
-        <p class="ms">"<span class="value">Investigación DeFi en Ethereum, Polkadot, Cardano</span>"</p>
-        ],
-      </div>
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
 
-      <!-- ===== CERTIFICADOS & CURSOS ===== -->
-      <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
+/**
+ * Add the correct font size in all browsers.
+ */
 
-      <div class="my ms">
-        "<span class="key">Certificados y cursos</span>": [
-        <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
-        <p class="ms">"<a class="value" href="https://bit.ly/47LvfG9" target="_blank">IBM Blockchain Essentials V2</a>",</p>
-        <p class="ms">"<span class="value">Introduction to DLTs and Overledger (QNT)</span>",</p>
-        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">SQL HackerRank Level 3</a>",</p>
-        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">Python HackerRank Level 4</a>",</p>
-        <p class="ms">"<a class="value" href="https://bit.ly/44oKtOr" target="_blank">MATLAB Onramp</a>"</p>
-        ]
-      </div>
-    </div>
-    <!-- /#json -->
-  </main>
+small {
+  font-size: 80%;
+}
 
-  <!-- Script para inicializar Typed.js -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      new Typed('#typed', {
-        stringsElement: '#strings',
-        typeSpeed: 30,
-        backSpeed: 10,
-        backDelay: 1000,
-        loop: true,
-        smartBackspace: true
-      });
-    });
-  </script>
-</body>
-</html>
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}

@@ -1,3 +1,182 @@
+--- juanjoarlandis.github.io/estructura_directorios.json ---
+[
+    {
+        "name": "juanjoarlandis.github.io",
+        "dirs": [
+            {
+                "name": "assets",
+                "dirs": [
+                    {
+                        "name": "images",
+                        "dirs": [],
+                        "files": [
+                            "perfil.jpg"
+                        ]
+                    },
+                    {
+                        "name": "css",
+                        "dirs": [],
+                        "files": [
+                            "open-color.css",
+                            "normalize.css",
+                            "styles.scss"
+                        ]
+                    },
+                    {
+                        "name": "webfonts",
+                        "dirs": [],
+                        "files": [
+                            "hack-regular-subset.woff2",
+                            "hack-italic-subset.woff2"
+                        ]
+                    },
+                    {
+                        "name": "sounds",
+                        "dirs": [],
+                        "files": [
+                            "typing.mp3"
+                        ]
+                    },
+                    {
+                        "name": "js",
+                        "dirs": [],
+                        "files": [
+                            "typed.umd.js"
+                        ]
+                    }
+                ],
+                "files": [
+                    "favicon.ico",
+                    "apple-touch-icon.png",
+                    "android-chrome-192x192.png",
+                    "android-chrome-512x512.png",
+                    "site.webmanifest",
+                    "favicon-16x16.png",
+                    "favicon-32x32.png"
+                ]
+            },
+            {
+                "name": "_sass",
+                "dirs": [],
+                "files": [
+                    "_custom.scss",
+                    "_default.scss"
+                ]
+            },
+            {
+                "name": "_data",
+                "dirs": [],
+                "files": [
+                    "json.yml"
+                ]
+            },
+            {
+                "name": "_layouts",
+                "dirs": [],
+                "files": [
+                    "home.html",
+                    "404.html",
+                    "default.html"
+                ]
+            },
+            {
+                "name": "_site",
+                "dirs": [
+                    {
+                        "name": "assets",
+                        "dirs": [
+                            {
+                                "name": "images",
+                                "dirs": [],
+                                "files": [
+                                    "perfil.jpg"
+                                ]
+                            },
+                            {
+                                "name": "css",
+                                "dirs": [],
+                                "files": [
+                                    "styles.css",
+                                    "open-color.css",
+                                    "normalize.css"
+                                ]
+                            },
+                            {
+                                "name": "webfonts",
+                                "dirs": [],
+                                "files": [
+                                    "hack-regular-subset.woff2",
+                                    "hack-italic-subset.woff2"
+                                ]
+                            },
+                            {
+                                "name": "sounds",
+                                "dirs": [],
+                                "files": [
+                                    "typing.mp3"
+                                ]
+                            },
+                            {
+                                "name": "js",
+                                "dirs": [],
+                                "files": [
+                                    "typed.umd.js"
+                                ]
+                            }
+                        ],
+                        "files": [
+                            "favicon.ico",
+                            "apple-touch-icon.png",
+                            "android-chrome-192x192.png",
+                            "android-chrome-512x512.png",
+                            "site.webmanifest",
+                            "favicon-16x16.png",
+                            "favicon-32x32.png"
+                        ]
+                    }
+                ],
+                "files": [
+                    "estructura_directorios.json",
+                    "index.html",
+                    "Gemfile.lock",
+                    "robots.txt",
+                    "404.html",
+                    "Gemfile",
+                    "hacked-jekyll.gemspec",
+                    "sitemap.xml"
+                ]
+            },
+            {
+                "name": ".sass-cache",
+                "dirs": [
+                    {
+                        "name": "f036fb08aa66b5a80de940d5ab933bfd13a275f4",
+                        "dirs": [],
+                        "files": [
+                            "_custom.scssc",
+                            "_default.scssc"
+                        ]
+                    }
+                ],
+                "files": []
+            }
+        ],
+        "files": [
+            "estructura_directorios.json",
+            ".nojekyll",
+            "Gemfile.lock",
+            "LICENSE",
+            ".gitignore",
+            "Gemfile",
+            "404.md",
+            "hacked-jekyll.gemspec",
+            "_config.yml",
+            "README.md",
+            "index.md"
+        ]
+    }
+]
+
 --- juanjoarlandis.github.io/.nojekyll ---
 
 
@@ -338,7 +517,7 @@ SOFTWARE.
 
 --- juanjoarlandis.github.io/.gitignore ---
 *.gem
-_site/
+/_site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
@@ -379,25 +558,66 @@ end
 
 
 --- juanjoarlandis.github.io/_config.yml ---
-title: Hacked Jekyll
-description: Jekyll microtheme that looks like JSON
-baseurl: /hacked-jekyll
-url: https://piazzai.github.io
+# Archivo: _config.yml
 
+# ----------------------------------------
+# Metadatos del sitio
+# ----------------------------------------
+title: "Currículum – Juan José Arlandis Ocaña"
+description: "CV en formato JSON animado con Typed.js sobre Jekyll"
+url: "https://juanjoarlandis.github.io" # Tu dominio de GitHub Pages
+baseurl: "" # Importante: cadena vacía para sitio de usuario Pages
+
+# ----------------------------------------
+# Tema y configuración de Jekyll
+# ----------------------------------------
 theme: hacked-jekyll
 
-exclude:
-  - LICENSE
-  - README.md
-  - vendor/
-
+# ----------------------------------------
+# Plugins que utiliza el sitio
+# ----------------------------------------
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# ----------------------------------------
+# Archivos y carpetas a excluir del build
+# ----------------------------------------
+exclude:
+  - LICENSE
+  - README.md
+  - vendor/
+  - docs/ # Si eliminaste o no necesitas la carpeta de demostración
+  - Gemfile
+  - Gemfile.lock
+  - hacked-jekyll.gemspec
+  - _sass/
+  - _layouts/default.html # Si sólo usas _layouts/home.html
+  - _layouts/404.html # Si no quieres página 404 personalizada
+  - .github/ # Ajusta según tu estructura real
+  - .gitignore
+  - .nojekyll
+
+# ----------------------------------------
+# Configuración de SASS
+# ----------------------------------------
 sass:
   sourcemap: never
-  
+# ----------------------------------------
+# Configuración adicional (opcional)
+# ----------------------------------------
+# Si deseas forzar que todas las URLs de enlaces internos usen _relative_url_, activa esto:
+# permalink: pretty
+
+# Si quieres que GitHub Pages enseñe una página 404 personalizada (coloca 404.md en la raíz):
+# defaults:
+#   - scope:
+#       path: ""
+#       type: "pages"
+#     values:
+#       layout: "default"
+
+
 
 --- juanjoarlandis.github.io/README.md ---
 # hacked-jekyll
@@ -1799,177 +2019,694 @@ a:active {
       url: https://bit.ly/44oKtOr
 
 
+--- juanjoarlandis.github.io/.github/workflows/gh-pages.yml ---
+# .github/workflows/build-jekyll.yml
+
+name: CI / Build Jekyll
+
+on:
+  push:
+    branches:
+      - main # asegúrate de que coincide con la rama que usas para Pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1️⃣ Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: 2️⃣ Setup Ruby y Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2" # pincha una versión concreta (no “3.x”)
+          bundler-cache: true # cachea ~/.bundle para acelerar instal.
+
+      - name: 3️⃣ Instalar las gemas (incluido hacked-jekyll)
+        run: bundle install
+
+      - name: 4️⃣ Generar el sitio con Jekyll
+        run: bundle exec jekyll build --source . --destination docs
+
+      - name: 5️⃣ Mostrar contenido de docs/ (solo para debug)
+        run: |
+          echo "=== Contenido de docs/ después del build ==="
+          ls -R docs/
+
+
+--- juanjoarlandis.github.io/.github/workflows/_site/gh-pages.yml ---
+# .github/workflows/build-jekyll.yml
+
+name: CI / Build Jekyll
+
+on:
+  push:
+    branches:
+      - main # asegúrate de que coincide con la rama que usas para Pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1️⃣ Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: 2️⃣ Setup Ruby y Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2" # pincha una versión concreta (no “3.x”)
+          bundler-cache: true # cachea ~/.bundle para acelerar instal.
+
+      - name: 3️⃣ Instalar las gemas (incluido hacked-jekyll)
+        run: bundle install
+
+      - name: 4️⃣ Generar el sitio con Jekyll
+        run: bundle exec jekyll build --source . --destination docs
+
+      - name: 5️⃣ Mostrar contenido de docs/ (solo para debug)
+        run: |
+          echo "=== Contenido de docs/ después del build ==="
+          ls -R docs/
+
+
+--- juanjoarlandis.github.io/docs/estructura_directorios.json ---
+[
+    {
+        "name": "juanjoarlandis.github.io",
+        "dirs": [
+            {
+                "name": "assets",
+                "dirs": [
+                    {
+                        "name": "images",
+                        "dirs": [],
+                        "files": [
+                            "perfil.jpg"
+                        ]
+                    },
+                    {
+                        "name": "css",
+                        "dirs": [],
+                        "files": [
+                            "open-color.css",
+                            "normalize.css",
+                            "styles.scss"
+                        ]
+                    },
+                    {
+                        "name": "webfonts",
+                        "dirs": [],
+                        "files": [
+                            "hack-regular-subset.woff2",
+                            "hack-italic-subset.woff2"
+                        ]
+                    },
+                    {
+                        "name": "sounds",
+                        "dirs": [],
+                        "files": [
+                            "typing.mp3"
+                        ]
+                    },
+                    {
+                        "name": "js",
+                        "dirs": [],
+                        "files": [
+                            "typed.umd.js"
+                        ]
+                    }
+                ],
+                "files": [
+                    "favicon.ico",
+                    "apple-touch-icon.png",
+                    "android-chrome-192x192.png",
+                    "android-chrome-512x512.png",
+                    "site.webmanifest",
+                    "favicon-16x16.png",
+                    "favicon-32x32.png"
+                ]
+            },
+            {
+                "name": "_sass",
+                "dirs": [],
+                "files": [
+                    "_custom.scss",
+                    "_default.scss"
+                ]
+            },
+            {
+                "name": "_data",
+                "dirs": [],
+                "files": [
+                    "json.yml"
+                ]
+            },
+            {
+                "name": "docs",
+                "dirs": [
+                    {
+                        "name": "assets",
+                        "dirs": [
+                            {
+                                "name": "css",
+                                "dirs": [],
+                                "files": [
+                                    "styles.css",
+                                    "open-color.css",
+                                    "normalize.css"
+                                ]
+                            },
+                            {
+                                "name": "webfonts",
+                                "dirs": [],
+                                "files": [
+                                    "hack-regular-subset.woff2",
+                                    "hack-italic-subset.woff2"
+                                ]
+                            },
+                            {
+                                "name": "js",
+                                "dirs": [],
+                                "files": [
+                                    "typed.umd.js"
+                                ]
+                            }
+                        ],
+                        "files": [
+                            "favicon.ico",
+                            "apple-touch-icon.png",
+                            "android-chrome-192x192.png",
+                            "android-chrome-512x512.png",
+                            "site.webmanifest",
+                            "favicon-16x16.png",
+                            "favicon-32x32.png"
+                        ]
+                    }
+                ],
+                "files": [
+                    "index.html",
+                    "Gemfile.lock",
+                    "robots.txt",
+                    "404.html",
+                    "Gemfile",
+                    "sitemap.xml"
+                ]
+            },
+            {
+                "name": "_layouts",
+                "dirs": [],
+                "files": [
+                    "home.html",
+                    "404.html",
+                    "default.html"
+                ]
+            }
+        ],
+        "files": [
+            ".nojekyll",
+            "Gemfile.lock",
+            "LICENSE",
+            ".gitignore",
+            "Gemfile",
+            "404.md",
+            "hacked-jekyll.gemspec",
+            "_config.yml",
+            "README.md",
+            "index.md"
+        ]
+    }
+]
+
 --- juanjoarlandis.github.io/docs/index.html ---
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hacked Jekyll</title>
+  <title>Currículum – Juan José Arlandis Ocaña</title>
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Hacked Jekyll" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Jekyll microtheme that looks like JSON" />
-<meta property="og:description" content="Jekyll microtheme that looks like JSON" />
-<link rel="canonical" href="https://piazzai.github.io/hacked-jekyll/" />
-<meta property="og:url" content="https://piazzai.github.io/hacked-jekyll/" />
-<meta property="og:site_name" content="Hacked Jekyll" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Hacked Jekyll" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Jekyll microtheme that looks like JSON","headline":"Hacked Jekyll","name":"Hacked Jekyll","url":"https://piazzai.github.io/hacked-jekyll/"}</script>
-<!-- End Jekyll SEO tag -->
+  <!-- Íconos y favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
 
-  <link rel="icon" type="image/x-icon" href="/hacked-jekyll/assets/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/hacked-jekyll/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/hacked-jekyll/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/hacked-jekyll/assets/favicon-16x16.png">
-  <link rel="manifest" href="/hacked-jekyll/assets/site.webmanifest">
-  <link rel="stylesheet" href="/hacked-jekyll/assets/css/normalize.css" />
-  <link rel="stylesheet" href="/hacked-jekyll/assets/css/open-color.css" />
-  <link rel="stylesheet" href="/hacked-jekyll/assets/css/styles.css" />
-  <script src="/hacked-jekyll/assets/js/typed.umd.js"></script>
+  <!-- Normalize.css para reset de estilos -->
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+
+  <!-- Open Color (variables de color) -->
+  <link rel="stylesheet" href="assets/css/open-color.css" />
+
+  <!-- Hoja de estilos principal compilada (Sass → CSS) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Typed.js (para animación de escritura) -->
+  <script src="assets/js/typed.umd.js"></script>
+
+  <!-- Estilos adicionales para la imagen de perfil, animación y botón -->
+  <style>
+    /* ================================
+       Botón de silenciar/activar sonido
+       ================================ */
+    #mute-button {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--oc-green-4);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    /* ================================
+       Imagen de perfil
+       ================================ */
+    .perfil-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .perfil-img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 3px solid var(--oc-green-4);
+      border-radius: 0;
+      margin: 0 auto;
+    }
+
+    /* ================================
+       Animación de aparición con escritura al hacer scroll
+       ================================ */
+    #json .comment,
+    #json .my {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+
+    #json .comment.visible,
+    #json .my.visible {
+      opacity: 1;
+    }
+
+    /* ================================
+       Mantener espacio reservado antes de iniciar Typed.js
+       ================================ */
+    #json .comment,
+    #json .my {
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Botón para silenciar/activar sonido -->
+  <button id="mute-button">Silenciar</button>
+
   <main>
-
-<div id="json">
-  
-  <div class="my ms">
-    "<span class="key">Name</span>":
-    "<span class="value">Place Holder</span>",
-  </div>
-  
-  <div class="my ms">
-    <div id="strings">
-      <span>Hello!</span><span>This tiny website</span><span>Looks like JSON</span>
+    <!-- =====================================
+         Bloque: Foto de perfil (centrada)
+         ===================================== -->
+    <div class="perfil-container">
+      <img
+        src="assets/images/perfil.jpg"
+        alt="Foto de perfil – Juan José Arlandis"
+        class="perfil-img"
+      />
     </div>
-    "<span class="key">Description</span>":
-    "<span class="value"><span id="typed"></span></span>",
-  </div>
-  
-  <div class="my ms">
-    "<span class="key">CV</span>":
-    "<a class="value" href="/hacked-jekyll/cv.pdf" target="_self">cv.pdf</a>",
-  </div>
-  
-  <div class="my ms">
-    "<span class="key">Address</span>": [
-    <p class="ms">
-      "<span class="value">University of Jekyll</span>",
-    </p>
-    <p class="ms">
-      "<span class="value">Department of Themes</span>",
-    </p>
-    <p class="ms">
-      "<span class="value">123 Main St, Anytown, USA</span>"
-    </p>
-    ],
-  </div>
-  
-  <div class="my ms">
-    "<span class="key">Contact</span>": [
-    <p class="ms">
-      "<span class="key">Office</span>":
-      "<span class="value">Foobar Hall 1.23</span>",
-    </p>
-    <p class="ms">
-      "<span class="key">Phone</span>":
-      "<span class="value">+1 234 567 890</span>",
-    </p>
-    <p class="ms">
-      "<span class="key">Email</span>":
-      "<a class="value" href="mailto:username@domain.com" target="_self">username@domain.com</a>"
-    </p>
-    ],
-  </div>
-  
-  <div class="my ms">
-    "<span class="key">Source</span>":
-    "<a class="value" href="https://github.com/piazzai/hacked-jekyll" target="_self">piazzai/hacked-jekyll</a>",
-  </div>
-  
-  <div class="my ms">
-    "<span class="key">Profiles</span>": [
-    <p class="ms">
-      "<a class="value" href="https://www.instagram.com" target="_self">Instagram</a>",
-    </p>
-    <p class="ms">
-      "<a class="value" href="https://www.linkedin.com" target="_self">LinkedIn</a>",
-    </p>
-    <p class="ms">
-      "<a class="value" href="https://stackoverflow.com" target="_self">StackOverflow</a>",
-    </p>
-    <p class="ms">
-      "<a class="value" href="https://github.com" target="_self">GitHub</a>"
-    </p>
-    ]
-  </div>
-  
-</div>
 
+    <!-- =====================================
+         Bloque: Contenedor JSON (estilo theme)
+         ===================================== -->
+    <div id="json">
+      <!-- ===== PERFIL ===== -->
+      <div class="comment ms">// ===== PERFIL =====</div>
+
+      <div class="my ms">
+        "<span class="key">Nombre</span>":
+        "<span class="value">Juan José Arlandis Ocaña</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Título</span>":
+        "<span class="value">Estudiante de Ingeniería de Telecomunicaciones — ETSIT-UPM</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Contacto</span>": [
+          <p class="ms">
+            "<span class="key">Email</span>":
+            "<a class="value" href="mailto:contact@juanjoarlandis.com" target="_blank">contact@juanjoarlandis.com</a>",
+          </p>
+          <p class="ms">
+            "<span class="key">Fecha de nacimiento</span>":
+            "<span class="value">4 may 2000</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">Nacionalidad</span>":
+            "<span class="value">Español</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">LinkedIn</span>":
+            "<a class="value" href="https://www.linkedin.com/in/juan-jose-arlandis/" target="_blank">juan-jose-arlandis</a>"
+          </p>
+        ],
+      </div>
+
+      <!-- ===== RESUMEN ===== -->
+      <div class="comment ms">// ===== RESUMEN =====</div>
+      <div class="my ms">
+        "<span class="key">Resumen</span>":
+        "<span class="value">
+          Aspirante a ingeniero Telco con pasión por Blockchain · 
+          Meta ▸ combinar Telecomunicaciones + Blockchain · 
+          Autodidacta de IA y tecnologías descentralizadas
+        "</span>,
+      </div>
+
+      <!-- ===== HABILIDADES ===== -->
+      <div class="comment ms">// ===== HABILIDADES =====</div>
+
+      <div class="my ms">
+        "<span class="key">Habilidades</span>": [
+        <p class="ms">"<span class="value">Python</span>",</p>
+        <p class="ms">"<span class="value">MATLAB</span>",</p>
+        <p class="ms">"<span class="value">C++</span>",</p>
+        <p class="ms">"<span class="value">Solidity</span>",</p>
+        <p class="ms">"<span class="value">React / React Native</span>",</p>
+        <p class="ms">"<span class="value">Swift</span>",</p>
+        <p class="ms">"<span class="value">Maven / Gradle</span>",</p>
+        <p class="ms">"<span class="value">Inteligencia Artificial</span>",</p>
+        <p class="ms">"<span class="value">Teamwork</span>",</p>
+        <p class="ms">"<span class="value">Troubleshooting</span>",</p>
+        <p class="ms">"<span class="value">Problem-solving</span>",</p>
+        <p class="ms">"<span class="value">Comunicación</span>",</p>
+        <p class="ms">"<span class="value">Customer Service</span>",</p>
+        <p class="ms">"<span class="value">Social Media</span>",</p>
+        <p class="ms">"<span class="value">Public Speaking</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== IDIOMAS ===== -->
+      <div class="comment ms">// ===== IDIOMAS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Idiomas</span>": [
+        <p class="ms">
+          "<span class="key">Inglés</span>":
+          "<span class="value">Nivel intermedio (B2 Cambridge FIRST)</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Francés</span>":
+          "<span class="value">Nivel básico</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EXPERIENCIA ===== -->
+      <div class="comment ms">// ===== EXPERIENCIA =====</div>
+
+      <div class="my ms">
+        "<span class="key">Experiencia</span>": [
+        <p class="ms">
+          "<span class="key">Profesor de Blockchain y Criptomonedas</span>":
+          "<span class="value">Tradenado.net — Ene 2022 – Sep 2022</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Creador de contenido en Twitter</span>":
+          "<span class="value">Cuenta personal — 2020 – Ene 2023</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Inversor en Criptomonedas</span>":
+          "<span class="value">Freelancer — 2019</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Emprendedor en Comercio Electrónico</span>":
+          "<span class="value">Freelancer — 2019 – 2020</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Fotógrafo</span>":
+          "<span class="value">Freelancer — 2018</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EDUCACIÓN ===== -->
+      <div class="comment ms">// ===== EDUCACIÓN =====</div>
+
+      <div class="my ms">
+        "<span class="key">Educación</span>": [
+        <p class="ms">
+          "<span class="key">Ingeniería de Telecomunicaciones</span>":
+          "<span class="value">Universidad Politécnica de Madrid (ETSIT) — 2018 – Actualidad</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Bachillerato Ciencias</span>":
+          "<span class="value">Colegio Virgen de Mirasierra — 2016 – Jun 2018 · Nota media 9</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== PROYECTOS ===== -->
+      <div class="comment ms">// ===== PROYECTOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Proyectos</span>": [
+        <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
+        <p class="ms">"<span class="value">Investigación de IA en el ecosistema Bittensor</span>",</p>
+        <p class="ms">"<span class="value">Programación en Solidity y despliegue de smart-contracts</span>",</p>
+        <p class="ms">"<span class="value">Diseño de tiendas Shopify (modelo Dropshipping)</span>",</p>
+        <p class="ms">"<span class="value">Investigación DeFi en Ethereum, Polkadot, Cardano</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== CERTIFICADOS & CURSOS ===== -->
+      <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Certificados y cursos</span>": [
+        <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/47LvfG9" target="_blank">IBM Blockchain Essentials V2</a>",</p>
+        <p class="ms">"<span class="value">Introduction to DLTs and Overledger (QNT)</span>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">SQL HackerRank Level 3</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">Python HackerRank Level 4</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/44oKtOr" target="_blank">MATLAB Onramp</a>"</p>
+        ]
+      </div>
+    </div>
+    <!-- /#json -->
   </main>
+
+  <!-- ================================
+       Elemento <audio> para el sonido de fondo
+       ================================ -->
+  <audio id="type-sound" src="assets/sounds/typing.mp3" preload="auto" loop></audio>
+
+  <!-- Script para animar la escritura sección a sección, sonido en loop y botón de silencio -->
   <script>
-    var typed = new Typed("#typed", {
-      stringsElement: "#strings",
-      backSpeed: 10,
-      typeSpeed: 30,
-      backDelay: 1000,
-      loop: true,
-      smartBackspace: true,
+    document.addEventListener('DOMContentLoaded', function () {
+      // ========== Variables de velocidad ==========
+      const TYPE_SPEED_SCROLL = 5;  // Velocidad de tecleo en el scroll JSON (ms)
+
+      // Elementos de audio y botón
+      const audioTecla = document.getElementById('type-sound');
+      const muteButton = document.getElementById('mute-button');
+      let isMuted = false;
+      let audioUnlocked = false;
+
+      // =============================
+      // 1) Desbloqueo del audio con primer scroll o clic
+      // =============================
+      function unlockAudio() {
+        if (!audioUnlocked) {
+          audioTecla.play()
+            .then(() => {
+              audioTecla.pause();
+              audioTecla.currentTime = 0;
+              audioUnlocked = true;
+            })
+            .catch(err => {
+              console.warn('Error al desbloquear audio:', err);
+            });
+          window.removeEventListener('scroll', unlockAudio);
+          document.removeEventListener('click', unlockAudio);
+        }
+      }
+      window.addEventListener('scroll', unlockAudio);
+      document.addEventListener('click', unlockAudio);
+
+      // =============================
+      // 2) Botón para silenciar/activar sonido
+      // =============================
+      muteButton.addEventListener('click', () => {
+        if (!audioUnlocked) {
+          // Forzamos desbloqueo si aún no se hizo
+          audioTecla.play()
+            .then(() => {
+              audioTecla.pause();
+              audioTecla.currentTime = 0;
+              audioUnlocked = true;
+            })
+            .catch(err => {
+              console.warn('Error al desbloquear audio desde botón:', err);
+            });
+        }
+        // Alternar mute/unmute
+        isMuted = !isMuted;
+        audioTecla.muted = isMuted;
+        muteButton.textContent = isMuted ? 'Activar sonido' : 'Silenciar';
+      });
+
+      // ============== Animación de scroll sección a sección ==============
+      const codeElems    = Array.from(document.querySelectorAll('#json .comment, #json .my'));
+      let nextIndex      = 0;               // Índice del siguiente elemento a tipiar
+      const intersecting = new Set();       // Elementos en vista
+
+      // Preparamos cada elemento: guardamos HTML original, fijamos altura, limpiamos contenido
+      codeElems.forEach(el => {
+        const html   = el.innerHTML;
+        el.setAttribute('data-typed-html', html);
+        const height = el.offsetHeight;
+        el.style.minHeight = `${height}px`;
+        el.innerHTML = '';
+      });
+
+      // Función para iniciar el tipeo de un elemento (con sonido en loop)
+      function startTyping(el) {
+        // Añadimos clases para indicar estado
+        el.classList.add('visible');
+        el.classList.add('typing');
+
+        // Si audio desbloqueado y no está silenciado, reproducir en loop
+        if (audioUnlocked && !isMuted && audioTecla.paused) {
+          audioTecla.play().catch(err => {
+            console.warn('No se pudo iniciar audioTecla en startTyping():', err);
+          });
+        }
+
+        // Crear instancia de Typed.js para este elemento
+        new Typed(el, {
+          strings: [el.getAttribute('data-typed-html')],
+          typeSpeed: TYPE_SPEED_SCROLL,
+          showCursor: false,
+          contentType: 'html',
+          onComplete: () => {
+            el.classList.remove('typing');
+            el.classList.add('typed-done');
+            observer.unobserve(el);
+            nextIndex++;
+
+            // Tras completar, comprobar si el siguiente está en vista
+            const siguiente = codeElems[nextIndex];
+            if (nextIndex < codeElems.length && intersecting.has(siguiente)) {
+              startTyping(siguiente);
+            } else {
+              // Si no hay siguiente visible o ya acabó, pausamos el sonido
+              audioTecla.pause();
+            }
+          }
+        });
+      }
+
+      // Callback del IntersectionObserver
+      function handleIntersections(entries) {
+        entries.forEach(entry => {
+          const el = entry.target;
+          if (entry.isIntersecting) {
+            intersecting.add(el);
+          } else {
+            intersecting.delete(el);
+          }
+        });
+        // Si el siguiente elemento en cola está en vista y no ha empezado, iniciarlo
+        if (nextIndex < codeElems.length) {
+          const siguiente = codeElems[nextIndex];
+          if (
+            intersecting.has(siguiente) &&
+            !siguiente.classList.contains('typed-done') &&
+            !siguiente.classList.contains('typing')
+          ) {
+            startTyping(siguiente);
+          }
+        }
+      }
+
+      // Creamos el IntersectionObserver
+      const observer = new IntersectionObserver(handleIntersections, {
+        root: null,
+        threshold: 0.1
+      });
+
+      // Empezamos a observar cada elemento
+      codeElems.forEach(el => observer.observe(el));
     });
   </script>
 </body>
-
 </html>
+
 
 --- juanjoarlandis.github.io/docs/Gemfile.lock ---
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.3.3)
+    activesupport (8.0.2)
       base64
+      benchmark (>= 0.3)
       bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
+      concurrent-ruby (~> 1.0, >= 1.3.1)
       connection_pool (>= 2.2.5)
       drb
       i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
       minitest (>= 5.1)
-      mutex_m
-      tzinfo (~> 2.0)
-    addressable (2.8.6)
-      public_suffix (>= 2.0.2, < 6.0)
+      securerandom (>= 0.3)
+      tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     base64 (0.2.0)
-    bigdecimal (3.1.8)
+    benchmark (0.4.1)
+    bigdecimal (3.2.2)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
     colorator (1.1.0)
-    commonmarker (0.23.10)
-    concurrent-ruby (1.3.1)
-    connection_pool (2.4.1)
-    dnsruby (1.72.1)
+    commonmarker (0.23.11)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.3)
+    dnsruby (1.72.4)
+      base64 (~> 0.2.0)
+      logger (~> 1.6.5)
       simpleidn (~> 0.2.1)
-    drb (2.2.1)
+    drb (2.2.3)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     ethon (0.16.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
-    execjs (2.9.1)
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-net_http (3.1.0)
-      net-http
-    ffi (1.17.0)
+    execjs (2.10.0)
+    faraday (2.13.1)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
     github-pages (231)
@@ -2030,7 +2767,7 @@ GEM
       activesupport (>= 2)
       nokogiri (>= 1.4)
     http_parser.rb (0.8.0)
-    i18n (1.14.5)
+    i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     jekyll (3.9.5)
       addressable (~> 2.4)
@@ -2140,6 +2877,7 @@ GEM
       gemoji (>= 3, < 5)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
+    json (2.12.2)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -2148,31 +2886,44 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.6.6)
     mercenary (0.3.6)
     minima (2.5.1)
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    minitest (5.23.1)
-    mutex_m (0.2.0)
-    net-http (0.4.1)
+    minitest (5.25.5)
+    net-http (0.6.0)
       uri
-    nokogiri (1.16.5-x86_64-linux)
+    nokogiri (1.18.8-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
     octokit (4.25.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (5.0.5)
-    racc (1.8.0)
+    public_suffix (5.1.1)
+    racc (1.8.1)
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.4.1)
     rouge (3.30.0)
-    rubyzip (2.3.2)
+    rubyzip (2.4.1)
     safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -2182,8 +2933,8 @@ GEM
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
+    securerandom (0.4.1)
     simpleidn (0.2.3)
-    strscan (3.1.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     typhoeus (1.4.1)
@@ -2191,83 +2942,271 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
-    uri (0.13.0)
+    uri (1.0.3)
     webrick (1.8.1)
 
 PLATFORMS
-  x86_64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   hacked-jekyll (~> 3.0)
 
 BUNDLED WITH
-   2.3.5
+   2.6.9
 
 
 --- juanjoarlandis.github.io/docs/robots.txt ---
-Sitemap: https://piazzai.github.io/hacked-jekyll/sitemap.xml
+Sitemap: http://localhost:4000/hacked-jekyll/sitemap.xml
 
 
 --- juanjoarlandis.github.io/docs/404.html ---
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hacked Jekyll</title>
+  <title>Currículum – Juan José Arlandis Ocaña</title>
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Hacked Jekyll" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Jekyll microtheme that looks like JSON" />
-<meta property="og:description" content="Jekyll microtheme that looks like JSON" />
-<link rel="canonical" href="https://piazzai.github.io/hacked-jekyll/404.html" />
-<meta property="og:url" content="https://piazzai.github.io/hacked-jekyll/404.html" />
-<meta property="og:site_name" content="Hacked Jekyll" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Hacked Jekyll" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Jekyll microtheme that looks like JSON","headline":"Hacked Jekyll","url":"https://piazzai.github.io/hacked-jekyll/404.html"}</script>
-<!-- End Jekyll SEO tag -->
+  <!-- Íconos y favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
 
-  <link rel="icon" type="image/x-icon" href="/hacked-jekyll/assets/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/hacked-jekyll/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/hacked-jekyll/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/hacked-jekyll/assets/favicon-16x16.png">
-  <link rel="manifest" href="/hacked-jekyll/assets/site.webmanifest">
-  <link rel="stylesheet" href="/hacked-jekyll/assets/css/normalize.css" />
-  <link rel="stylesheet" href="/hacked-jekyll/assets/css/open-color.css" />
-  <link rel="stylesheet" href="/hacked-jekyll/assets/css/styles.css" />
-  <script src="/hacked-jekyll/assets/js/typed.umd.js"></script>
+  <!-- Normalize.css para reset de estilos -->
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+
+  <!-- Open Color (variables de color) -->
+  <link rel="stylesheet" href="assets/css/open-color.css" />
+
+  <!-- Hoja de estilos principal compilada (Sass → CSS) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Typed.js (para efecto "typed" en el resumen) -->
+  <script src="assets/js/typed.umd.js"></script>
+
+  <!-- Estilos adicionales específicos para la imagen de perfil -->
+  <style>
+    /* ================================
+       Imagen de perfil
+       ================================ */
+    .perfil-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .perfil-img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 3px solid var(--oc-green-4); /* Color de borde igual al color de claves */
+      border-radius: 0;                    /* Sin esquinas redondeadas */
+      margin: 0 auto;
+    }
+  </style>
 </head>
 
 <body>
   <main>
+    <!-- =====================================
+         Bloque: Foto de perfil (centrada)
+         ===================================== -->
+    <div class="perfil-container">
+      <img
+        src="assets/images/perfil.jpg"
+        alt="Foto de perfil – Juan José Arlandis"
+        class="perfil-img"
+      />
+    </div>
 
-<div class="error">
-    <h1>404</h1>
-    <p>Page not found</p>
-    <p class="mt"><a href="https://piazzai.github.io/hacked-jekyll">piazzai.github.io/hacked-jekyll</a></p>
-</div>
+    <!-- =====================================
+         Bloque: Contenedor JSON (estilo theme)
+         ===================================== -->
+    <div id="json">
+      <!-- ===== PERFIL ===== -->
+      <div class="comment ms">// ===== PERFIL =====</div>
 
+      <div class="my ms">
+        "<span class="key">Nombre</span>":
+        "<span class="value">Juan José Arlandis Ocaña</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Título</span>":
+        "<span class="value">Estudiante de Ingeniería de Telecomunicaciones — ETSIT-UPM</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Contacto</span>": [
+          <p class="ms">
+            "<span class="key">Email</span>":
+            "<a class="value" href="mailto:contact@juanjoarlandis.com" target="_blank">contact@juanjoarlandis.com</a>",
+          </p>
+          <p class="ms">
+            "<span class="key">Fecha de nacimiento</span>":
+            "<span class="value">4 may 2000</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">Nacionalidad</span>":
+            "<span class="value">Español</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">LinkedIn</span>":
+            "<a class="value" href="https://www.linkedin.com/in/juan-jose-arlandis/" target="_blank">juan-jose-arlandis</a>"
+          </p>
+        ],
+      </div>
+
+      <!-- ===== RESUMEN (typed.js) ===== -->
+      <div class="comment ms">// ===== RESUMEN (typed.js) =====</div>
+
+      <div class="my ms">
+        <div id="strings">
+          <span>Aspirante a ingeniero Telco con pasión por Blockchain</span>
+          <span>Meta ▸ combinar Telecomunicaciones + Blockchain</span>
+          <span>Autodidacta de IA y tecnologías descentralizadas</span>
+        </div>
+        "<span class="key">Resumen</span>":
+        "<span class="value"><span id="typed"></span></span>",
+      </div>
+
+      <!-- ===== HABILIDADES ===== -->
+      <div class="comment ms">// ===== HABILIDADES =====</div>
+
+      <div class="my ms">
+        "<span class="key">Habilidades</span>": [
+        <p class="ms">"<span class="value">Python</span>",</p>
+        <p class="ms">"<span class="value">MATLAB</span>",</p>
+        <p class="ms">"<span class="value">C++</span>",</p>
+        <p class="ms">"<span class="value">Solidity</span>",</p>
+        <p class="ms">"<span class="value">React / React Native</span>",</p>
+        <p class="ms">"<span class="value">Swift</span>",</p>
+        <p class="ms">"<span class="value">Maven / Gradle</span>",</p>
+        <p class="ms">"<span class="value">Inteligencia Artificial</span>",</p>
+        <p class="ms">"<span class="value">Teamwork</span>",</p>
+        <p class="ms">"<span class="value">Troubleshooting</span>",</p>
+        <p class="ms">"<span class="value">Problem-solving</span>",</p>
+        <p class="ms">"<span class="value">Comunicación</span>",</p>
+        <p class="ms">"<span class="value">Customer Service</span>",</p>
+        <p class="ms">"<span class="value">Social Media</span>",</p>
+        <p class="ms">"<span class="value">Public Speaking</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== IDIOMAS ===== -->
+      <div class="comment ms">// ===== IDIOMAS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Idiomas</span>": [
+        <p class="ms">
+          "<span class="key">Inglés</span>":
+          "<span class="value">Nivel intermedio (B2 Cambridge FIRST)</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Francés</span>":
+          "<span class="value">Nivel básico</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EXPERIENCIA ===== -->
+      <div class="comment ms">// ===== EXPERIENCIA =====</div>
+
+      <div class="my ms">
+        "<span class="key">Experiencia</span>": [
+        <p class="ms">
+          "<span class="key">Profesor de Blockchain y Criptomonedas</span>":
+          "<span class="value">Tradenado.net — Ene 2022 – Sep 2022</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Creador de contenido en Twitter</span>":
+          "<span class="value">Cuenta personal — 2020 – Ene 2023</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Inversor en Criptomonedas</span>":
+          "<span class="value">Freelancer — 2019</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Emprendedor en Comercio Electrónico</span>":
+          "<span class="value">Freelancer — 2019 – 2020</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Fotógrafo</span>":
+          "<span class="value">Freelancer — 2018</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EDUCACIÓN ===== -->
+      <div class="comment ms">// ===== EDUCACIÓN =====</div>
+
+      <div class="my ms">
+        "<span class="key">Educación</span>": [
+        <p class="ms">
+          "<span class="key">Ingeniería de Telecomunicaciones</span>":
+          "<span class="value">Universidad Politécnica de Madrid (ETSIT) — 2018 – Actualidad</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Bachillerato Ciencias</span>":
+          "<span class="value">Colegio Virgen de Mirasierra — 2016 – Jun 2018 · Nota media 9</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== PROYECTOS ===== -->
+      <div class="comment ms">// ===== PROYECTOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Proyectos</span>": [
+        <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
+        <p class="ms">"<span class="value">Investigación de IA en el ecosistema Bittensor</span>",</p>
+        <p class="ms">"<span class="value">Programación en Solidity y despliegue de smart-contracts</span>",</p>
+        <p class="ms">"<span class="value">Diseño de tiendas Shopify (modelo Dropshipping)</span>",</p>
+        <p class="ms">"<span class="value">Investigación DeFi en Ethereum, Polkadot, Cardano</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== CERTIFICADOS & CURSOS ===== -->
+      <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Certificados y cursos</span>": [
+        <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/47LvfG9" target="_blank">IBM Blockchain Essentials V2</a>",</p>
+        <p class="ms">"<span class="value">Introduction to DLTs and Overledger (QNT)</span>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">SQL HackerRank Level 3</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">Python HackerRank Level 4</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/44oKtOr" target="_blank">MATLAB Onramp</a>"</p>
+        ]
+      </div>
+    </div>
+    <!-- /#json -->
   </main>
+
+  <!-- Script para inicializar Typed.js -->
   <script>
-    var typed = new Typed("#typed", {
-      stringsElement: "#strings",
-      backSpeed: 10,
-      typeSpeed: 30,
-      backDelay: 1000,
-      loop: true,
-      smartBackspace: true,
+    document.addEventListener('DOMContentLoaded', function () {
+      new Typed('#typed', {
+        stringsElement: '#strings',
+        typeSpeed: 30,
+        backSpeed: 10,
+        backDelay: 1000,
+        loop: true,
+        smartBackspace: true
+      });
     });
   </script>
 </body>
-
 </html>
+
 
 --- juanjoarlandis.github.io/docs/Gemfile ---
 source 'https://rubygems.org'
@@ -2275,11 +3214,31 @@ source 'https://rubygems.org'
 gem 'hacked-jekyll', '~> 3.0'
 
 
+--- juanjoarlandis.github.io/docs/hacked-jekyll.gemspec ---
+# frozen_string_literal: true
+
+Gem::Specification.new do |spec|
+  spec.name          = "hacked-jekyll"
+  spec.version       = "3.0.0"
+  spec.authors       = ["piazzai"]
+  spec.email         = ["42124135+piazzai@users.noreply.github.com"]
+
+  spec.summary       = "Jekyll microtheme that looks like JSON"
+  spec.homepage      = "https://github.com/piazzai/hacked-jekyll"
+  spec.license       = "MIT"
+
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }
+
+  spec.add_runtime_dependency "github-pages", "~> 231"
+  spec.add_runtime_dependency "webrick", "~> 1.8", "1.8.1"
+end
+
+
 --- juanjoarlandis.github.io/docs/sitemap.xml ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://piazzai.github.io/hacked-jekyll/</loc>
+<loc>http://localhost:4000/hacked-jekyll/</loc>
 </url>
 </urlset>
 
@@ -2288,6 +3247,7 @@ gem 'hacked-jekyll', '~> 3.0'
 {"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
 
 --- juanjoarlandis.github.io/docs/assets/css/styles.css ---
+@charset "UTF-8";
 @font-face {
   font-family: "hack";
   font-display: swap;
@@ -2361,6 +3321,101 @@ a:active {
 .value {
   color: var(--oc-green-4);
   text-transform: lowercase; }
+
+main {
+  position: static;
+  /* eliminamos el centrado absoluto */
+  transform: none;
+  margin: 2.5rem auto;
+  /* centra horizontalmente con margen */
+  width: 92%;
+  max-width: 80ch;
+  /* limita ancho para mejor lectura */
+  overflow-x: auto;
+  /* por si alguna línea es muy larga */ }
+
+/* Hace que el body siempre tenga scroll si lo necesita */
+html,
+body {
+  height: 100%; }
+
+@font-face {
+  font-family: "hack";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../webfonts/hack-regular-subset.woff2") format("woff2"); }
+@font-face {
+  font-family: "hack";
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+  src: url("../webfonts/hack-italic-subset.woff2") format("woff2"); }
+body {
+  font-family: "hack", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #1e1e1e;
+  color: #d4d4d4; }
+
+@media (min-width: 576px) {
+  main {
+    font-size: 18px;
+    width: 90%; } }
+@media (min-width: 768px) {
+  main {
+    font-size: 20px;
+    width: 80%; } }
+h1,
+p {
+  margin: 0; }
+
+a {
+  color: inherit;
+  font-style: italic; }
+
+a:hover,
+a:active {
+  color: #3794ff; }
+
+#json {
+  /* Permitimos el ajuste de líneas para movilidad y evitar scroll horizontal */
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-x: hidden; }
+
+/* Opcional: si se quiere asegurar wrap en móviles */
+@media (max-width: 480px) {
+  #json {
+    white-space: normal;
+    word-wrap: break-word; } }
+/* Mostrar llaves envolventes alrededor del contenido JSON */
+#json:before {
+  content: "{"; }
+
+#json:after {
+  content: "}"; }
+
+.my {
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+
+.mt {
+  margin-top: 1.5rem; }
+
+.ms {
+  margin-left: 1.5rem; }
+
+/* Estilo para claves (key) en JSON */
+.key {
+  color: #9cdcfe;
+  text-transform: none; }
+
+/* Estilo para valores (value) y posibles errores */
+.error,
+.value {
+  color: #ce9178;
+  text-transform: none; }
 
 
 --- juanjoarlandis.github.io/docs/assets/css/open-color.css ---
@@ -2710,355 +3765,245 @@ a:active {
 
 
 --- juanjoarlandis.github.io/docs/assets/css/normalize.css ---
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
-body {
-  margin: 0;
-}
-
-/**
- * Render the `main` element consistently in IE.
- */
-
-main {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Remove the gray background on active links in IE 10.
- */
-
-a {
-  background-color: transparent;
-}
-
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Remove the border on images inside links in IE 10.
- */
-
-img {
-  border-style: none;
-}
-
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input { /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select { /* 1 */
-  text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
- * Correct the padding in Firefox.
- */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-progress {
-  vertical-align: baseline;
-}
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
-details {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
-}
-
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-
-template {
-  display: none;
-}
-
-/**
- * Add the correct display in IE 10.
- */
-
-[hidden] {
-  display: none;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currículum – Juan José Arlandis Ocaña</title>
+
+  <!-- Íconos y favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+
+  <!-- Normalize.css para reset de estilos -->
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+
+  <!-- Open Color (variables de color) -->
+  <link rel="stylesheet" href="assets/css/open-color.css" />
+
+  <!-- Hoja de estilos principal compilada (Sass → CSS) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Typed.js (para efecto "typed" en el resumen) -->
+  <script src="assets/js/typed.umd.js"></script>
+
+  <!-- Estilos adicionales específicos para la imagen de perfil -->
+  <style>
+    /* ================================
+       Imagen de perfil
+       ================================ */
+    .perfil-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .perfil-img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 3px solid var(--oc-green-4); /* Color de borde igual al color de claves */
+      border-radius: 0;                    /* Sin esquinas redondeadas */
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- =====================================
+         Bloque: Foto de perfil (centrada)
+         ===================================== -->
+    <div class="perfil-container">
+      <img
+        src="assets/images/perfil.jpg"
+        alt="Foto de perfil – Juan José Arlandis"
+        class="perfil-img"
+      />
+    </div>
+
+    <!-- =====================================
+         Bloque: Contenedor JSON (estilo theme)
+         ===================================== -->
+    <div id="json">
+      <!-- ===== PERFIL ===== -->
+      <div class="comment ms">// ===== PERFIL =====</div>
+
+      <div class="my ms">
+        "<span class="key">Nombre</span>":
+        "<span class="value">Juan José Arlandis Ocaña</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Título</span>":
+        "<span class="value">Estudiante de Ingeniería de Telecomunicaciones — ETSIT-UPM</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Contacto</span>": [
+          <p class="ms">
+            "<span class="key">Email</span>":
+            "<a class="value" href="mailto:contact@juanjoarlandis.com" target="_blank">contact@juanjoarlandis.com</a>",
+          </p>
+          <p class="ms">
+            "<span class="key">Fecha de nacimiento</span>":
+            "<span class="value">4 may 2000</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">Nacionalidad</span>":
+            "<span class="value">Español</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">LinkedIn</span>":
+            "<a class="value" href="https://www.linkedin.com/in/juan-jose-arlandis/" target="_blank">juan-jose-arlandis</a>"
+          </p>
+        ],
+      </div>
+
+      <!-- ===== RESUMEN (typed.js) ===== -->
+      <div class="comment ms">// ===== RESUMEN (typed.js) =====</div>
+
+      <div class="my ms">
+        <div id="strings">
+          <span>Aspirante a ingeniero Telco con pasión por Blockchain</span>
+          <span>Meta ▸ combinar Telecomunicaciones + Blockchain</span>
+          <span>Autodidacta de IA y tecnologías descentralizadas</span>
+        </div>
+        "<span class="key">Resumen</span>":
+        "<span class="value"><span id="typed"></span></span>",
+      </div>
+
+      <!-- ===== HABILIDADES ===== -->
+      <div class="comment ms">// ===== HABILIDADES =====</div>
+
+      <div class="my ms">
+        "<span class="key">Habilidades</span>": [
+        <p class="ms">"<span class="value">Python</span>",</p>
+        <p class="ms">"<span class="value">MATLAB</span>",</p>
+        <p class="ms">"<span class="value">C++</span>",</p>
+        <p class="ms">"<span class="value">Solidity</span>",</p>
+        <p class="ms">"<span class="value">React / React Native</span>",</p>
+        <p class="ms">"<span class="value">Swift</span>",</p>
+        <p class="ms">"<span class="value">Maven / Gradle</span>",</p>
+        <p class="ms">"<span class="value">Inteligencia Artificial</span>",</p>
+        <p class="ms">"<span class="value">Teamwork</span>",</p>
+        <p class="ms">"<span class="value">Troubleshooting</span>",</p>
+        <p class="ms">"<span class="value">Problem-solving</span>",</p>
+        <p class="ms">"<span class="value">Comunicación</span>",</p>
+        <p class="ms">"<span class="value">Customer Service</span>",</p>
+        <p class="ms">"<span class="value">Social Media</span>",</p>
+        <p class="ms">"<span class="value">Public Speaking</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== IDIOMAS ===== -->
+      <div class="comment ms">// ===== IDIOMAS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Idiomas</span>": [
+        <p class="ms">
+          "<span class="key">Inglés</span>":
+          "<span class="value">Nivel intermedio (B2 Cambridge FIRST)</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Francés</span>":
+          "<span class="value">Nivel básico</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EXPERIENCIA ===== -->
+      <div class="comment ms">// ===== EXPERIENCIA =====</div>
+
+      <div class="my ms">
+        "<span class="key">Experiencia</span>": [
+        <p class="ms">
+          "<span class="key">Profesor de Blockchain y Criptomonedas</span>":
+          "<span class="value">Tradenado.net — Ene 2022 – Sep 2022</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Creador de contenido en Twitter</span>":
+          "<span class="value">Cuenta personal — 2020 – Ene 2023</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Inversor en Criptomonedas</span>":
+          "<span class="value">Freelancer — 2019</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Emprendedor en Comercio Electrónico</span>":
+          "<span class="value">Freelancer — 2019 – 2020</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Fotógrafo</span>":
+          "<span class="value">Freelancer — 2018</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EDUCACIÓN ===== -->
+      <div class="comment ms">// ===== EDUCACIÓN =====</div>
+
+      <div class="my ms">
+        "<span class="key">Educación</span>": [
+        <p class="ms">
+          "<span class="key">Ingeniería de Telecomunicaciones</span>":
+          "<span class="value">Universidad Politécnica de Madrid (ETSIT) — 2018 – Actualidad</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Bachillerato Ciencias</span>":
+          "<span class="value">Colegio Virgen de Mirasierra — 2016 – Jun 2018 · Nota media 9</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== PROYECTOS ===== -->
+      <div class="comment ms">// ===== PROYECTOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Proyectos</span>": [
+        <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
+        <p class="ms">"<span class="value">Investigación de IA en el ecosistema Bittensor</span>",</p>
+        <p class="ms">"<span class="value">Programación en Solidity y despliegue de smart-contracts</span>",</p>
+        <p class="ms">"<span class="value">Diseño de tiendas Shopify (modelo Dropshipping)</span>",</p>
+        <p class="ms">"<span class="value">Investigación DeFi en Ethereum, Polkadot, Cardano</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== CERTIFICADOS & CURSOS ===== -->
+      <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Certificados y cursos</span>": [
+        <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/47LvfG9" target="_blank">IBM Blockchain Essentials V2</a>",</p>
+        <p class="ms">"<span class="value">Introduction to DLTs and Overledger (QNT)</span>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">SQL HackerRank Level 3</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">Python HackerRank Level 4</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/44oKtOr" target="_blank">MATLAB Onramp</a>"</p>
+        ]
+      </div>
+    </div>
+    <!-- /#json -->
+  </main>
+
+  <!-- Script para inicializar Typed.js -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Typed('#typed', {
+        stringsElement: '#strings',
+        typeSpeed: 30,
+        backSpeed: 10,
+        backDelay: 1000,
+        loop: true,
+        smartBackspace: true
+      });
+    });
+  </script>
+</body>
+</html>
 
 
 --- juanjoarlandis.github.io/docs/assets/js/typed.umd.js ---

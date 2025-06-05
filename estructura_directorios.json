@@ -70,16 +70,28 @@
                 ]
             },
             {
-                "name": "_layouts",
-                "dirs": [],
-                "files": [
-                    "home.html",
-                    "404.html",
-                    "default.html"
-                ]
+                "name": ".github",
+                "dirs": [
+                    {
+                        "name": "workflows",
+                        "dirs": [
+                            {
+                                "name": "_site",
+                                "dirs": [],
+                                "files": [
+                                    "gh-pages.yml"
+                                ]
+                            }
+                        ],
+                        "files": [
+                            "gh-pages.yml"
+                        ]
+                    }
+                ],
+                "files": []
             },
             {
-                "name": "_site",
+                "name": "docs",
                 "dirs": [
                     {
                         "name": "assets",
@@ -143,6 +155,15 @@
                     "Gemfile",
                     "hacked-jekyll.gemspec",
                     "sitemap.xml"
+                ]
+            },
+            {
+                "name": "_layouts",
+                "dirs": [],
+                "files": [
+                    "home.html",
+                    "404.html",
+                    "default.html"
                 ]
             },
             {
