@@ -1,0 +1,31 @@
+name: Publicar Jekyll en GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # O la rama que uses para tu sitio
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1️⃣ Hacer checkout
+        uses: actions/checkout@v3
+
+      - name: 2️⃣ Instalar Ruby y Bundler (opcional, si usas Gemfile)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.x" # la versión que prefieras
+          bundler-cache: true
+
+      - name: 3️⃣ Build de Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: "." # tu fuente Jekyll está en la raíz
+          destination: "docs" # pone el sitio compilado en /docs
+
+      - name: 4️⃣ Verificar contenido de docs/
+        run: |
+          echo "=== CONTENIDO DE docs/ ==="
+          ls -R docs/

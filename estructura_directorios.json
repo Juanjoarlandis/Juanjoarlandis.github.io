@@ -70,11 +70,27 @@
                 ]
             },
             {
-                "name": "docs",
+                "name": "_layouts",
+                "dirs": [],
+                "files": [
+                    "home.html",
+                    "404.html",
+                    "default.html"
+                ]
+            },
+            {
+                "name": "_site",
                 "dirs": [
                     {
                         "name": "assets",
                         "dirs": [
+                            {
+                                "name": "images",
+                                "dirs": [],
+                                "files": [
+                                    "perfil.jpg"
+                                ]
+                            },
                             {
                                 "name": "css",
                                 "dirs": [],
@@ -90,6 +106,13 @@
                                 "files": [
                                     "hack-regular-subset.woff2",
                                     "hack-italic-subset.woff2"
+                                ]
+                            },
+                            {
+                                "name": "sounds",
+                                "dirs": [],
+                                "files": [
+                                    "typing.mp3"
                                 ]
                             },
                             {
@@ -112,25 +135,33 @@
                     }
                 ],
                 "files": [
+                    "estructura_directorios.json",
                     "index.html",
                     "Gemfile.lock",
                     "robots.txt",
                     "404.html",
                     "Gemfile",
+                    "hacked-jekyll.gemspec",
                     "sitemap.xml"
                 ]
             },
             {
-                "name": "_layouts",
-                "dirs": [],
-                "files": [
-                    "home.html",
-                    "404.html",
-                    "default.html"
-                ]
+                "name": ".sass-cache",
+                "dirs": [
+                    {
+                        "name": "f036fb08aa66b5a80de940d5ab933bfd13a275f4",
+                        "dirs": [],
+                        "files": [
+                            "_custom.scssc",
+                            "_default.scssc"
+                        ]
+                    }
+                ],
+                "files": []
             }
         ],
         "files": [
+            "estructura_directorios.json",
             ".nojekyll",
             "Gemfile.lock",
             "LICENSE",
