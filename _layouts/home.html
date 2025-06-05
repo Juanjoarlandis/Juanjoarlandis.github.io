@@ -23,7 +23,7 @@
   <!-- Typed.js (para animación de escritura) -->
   <script src="assets/js/typed.umd.js"></script>
 
-  <!-- Estilos adicionales para la imagen de perfil, animación y botón -->
+  <!-- Estilos adicionales para la imagen de perfil, animación, margen de línea y botón -->
   <style>
     /* ================================
        Botón de silenciar/activar sonido
@@ -60,12 +60,39 @@
     }
 
     /* ================================
+       Margen izquierdo para números de línea
+       ================================ */
+    #json {
+      counter-reset: line;
+    }
+    #json .comment,
+    #json .my {
+      counter-increment: line;
+      position: relative;
+      padding-left: 2.5rem; /* espacio para números de línea */
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-x: hidden;
+    }
+    #json .comment::before,
+    #json .my::before {
+      content: counter(line);
+      position: absolute;
+      left: 0;
+      width: 2rem;
+      text-align: right;
+      color: var(--oc-gray-5);
+      user-select: none;
+    }
+
+    /* ================================
        Animación de aparición con escritura al hacer scroll
        ================================ */
     #json .comment,
     #json .my {
       opacity: 0;
       transition: opacity 0.3s ease-in;
+      overflow: hidden; /* reservar espacio antes de Typed.js */
     }
 
     #json .comment.visible,
@@ -76,9 +103,21 @@
     /* ================================
        Mantener espacio reservado antes de iniciar Typed.js
        ================================ */
-    #json .comment,
-    #json .my {
-      overflow: hidden;
+    /* (ya aplicado en el mismo selector de .comment y .my) */
+
+    /* ================================
+       Ajustes para móviles
+       ================================ */
+    @media (max-width: 480px) {
+      #json .comment,
+      #json .my {
+        padding-left: 1.8rem; /* menos espacio en pantallas estrechas */
+      }
+      #json .comment::before,
+      #json .my::before {
+        width: 1.3rem;
+        left: 0;
+      }
     }
   </style>
 </head>
@@ -100,7 +139,7 @@
     </div>
 
     <!-- =====================================
-         Bloque: Contenedor JSON (estilo theme)
+         Bloque: Contenedor JSON (estilo theme) con números de línea
          ===================================== -->
     <div id="json">
       <!-- ===== PERFIL ===== -->
