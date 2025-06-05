@@ -36,7 +36,9 @@ $transform_value: none;
 //  Layout principal
 // =====================
 html,
-body { height: 100%; }
+body {
+  height: 100%;
+}
 
 body {
   font-family: "hack", monospace;
@@ -56,14 +58,32 @@ main {
   overflow-x: auto;
 }
 
-@media (min-width: 576px) { main { font-size: 14px; width: 90%; } }
-@media (min-width: 768px) { main { font-size: 14px; width: 90%; } }
+@media (min-width: 576px) {
+  main {
+    font-size: 14px;
+    width: 90%;
+  }
+}
+@media (min-width: 768px) {
+  main {
+    font-size: 14px;
+    width: 90%;
+  }
+}
 
-h1, p { margin: 0; }
+h1,
+p {
+  margin: 0;
+}
 
-a        { color: inherit; font-style: italic; }
+a {
+  color: inherit;
+  font-style: italic;
+}
 a:hover,
-a:active { color: $color_hover; }
+a:active {
+  color: $color_hover;
+}
 
 // =====================
 //  Bloque JSON
@@ -74,27 +94,49 @@ a:active { color: $color_hover; }
   overflow-x: hidden;
 }
 
-#json:before { content: "{"; }
-#json:after  { content: "}"; }
+#json:before {
+  content: "{";
+}
+#json:after {
+  content: "}";
+}
 
-.my { margin: 1rem 0; }
-.mt { margin-top: 1.5rem; }
-.ms { margin-left: 1.5rem; }
+.my {
+  margin: 1rem 0;
+}
+.mt {
+  margin-top: 1.5rem;
+}
+.ms {
+  margin-left: 1.5rem;
+}
 
-.key          { color: $color_key;   text-transform: $transform_key; }
+.key {
+  color: $color_key;
+  text-transform: $transform_key;
+}
 .value,
-.error        { color: $color_value; text-transform: $transform_value; }
+.error {
+  color: $color_value;
+  text-transform: $transform_value;
+}
 
 // =====================
 //  Cursor estilo consola
 // =====================
 .typed-cursor {
   font-weight: bold;
-  animation: consoleBlink 1s steps(2,end) infinite;
+  animation: consoleBlink 1s steps(2, end) infinite;
 }
 @keyframes consoleBlink {
-  0%,100% { opacity: 1;   color: var(--oc-green-4); }
-  50%     { opacity: .25; color: var(--oc-green-6); }
+  0%, 100% {
+    opacity: 1;
+    color: var(--oc-green-4);
+  }
+  50% {
+    opacity: .25;
+    color: var(--oc-green-6);
+  }
 }
 
 // =====================
@@ -104,7 +146,7 @@ a:active { color: $color_hover; }
   position: fixed;
   inset: 0 0 auto 0;
   height: 2.3rem;
-  background: rgba(0,0,0,.85);
+  background: rgba(0, 0, 0, .85);
   backdrop-filter: blur(6px);
   padding: .3rem .75rem;
   display: flex;
@@ -123,9 +165,14 @@ a:active { color: $color_hover; }
   color: #fff;
 }
 
-#recruiter-toggle { background: var(--oc-green-7); }
-#download-pdf     { background: var(--oc-green-5); display: none; }
-#cv-search        {
+#recruiter-toggle {
+  background: var(--oc-green-7);
+}
+#download-pdf {
+  background: var(--oc-green-5);
+  display: none;
+}
+#cv-search {
   flex: 1 1 220px;
   background: var(--oc-gray-8);
   color: var(--oc-white);
@@ -140,4 +187,22 @@ a:active { color: $color_hover; }
 .recruiter-mode *::after {
   animation: none !important;
   transition: none !important;
+}
+
+// =====================
+//  Ajuste de texto en móviles (≤ 480px)
+// =====================
+@media (max-width: 480px) {
+  /* Reducir el tamaño de toda la zona JSON a 10px */
+  #json {
+    font-size: 10px !important;
+    line-height: 1.3;
+  }
+
+  /* Asegurar que comentarios y líneas hereden los 10px */
+  #json .comment,
+  #json .my,
+  #json .my p {
+    font-size: 10px !important;
+  }
 }
