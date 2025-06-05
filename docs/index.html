@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currículum – Juan José Arlandis Ocaña</title>
+
+  <!-- Íconos y favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+
+  <!-- Normalize.css para reset de estilos -->
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+
+  <!-- Open Color (variables de color) -->
+  <link rel="stylesheet" href="assets/css/open-color.css" />
+
+  <!-- Hoja de estilos principal compilada (Sass → CSS) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Typed.js (para animación de escritura) -->
+  <script src="assets/js/typed.umd.js"></script>
+
+  <!-- Estilos adicionales para la imagen de perfil, animación y botón -->
+  <style>
+    /* ================================
+       Botón de silenciar/activar sonido
+       ================================ */
+    #mute-button {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--oc-green-4);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    /* ================================
+       Imagen de perfil
+       ================================ */
+    .perfil-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .perfil-img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 3px solid var(--oc-green-4);
+      border-radius: 0;
+      margin: 0 auto;
+    }
+
+    /* ================================
+       Animación de aparición con escritura al hacer scroll
+       ================================ */
+    #json .comment,
+    #json .my {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+
+    #json .comment.visible,
+    #json .my.visible {
+      opacity: 1;
+    }
+
+    /* ================================
+       Mantener espacio reservado antes de iniciar Typed.js
+       ================================ */
+    #json .comment,
+    #json .my {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Botón para silenciar/activar sonido -->
+  <button id="mute-button">Silenciar</button>
+
+  <main>
+    <!-- =====================================
+         Bloque: Foto de perfil (centrada)
+         ===================================== -->
+    <div class="perfil-container">
+      <img
+        src="assets/images/perfil.jpg"
+        alt="Foto de perfil – Juan José Arlandis"
+        class="perfil-img"
+      />
+    </div>
+
+    <!-- =====================================
+         Bloque: Contenedor JSON (estilo theme)
+         ===================================== -->
+    <div id="json">
+      <!-- ===== PERFIL ===== -->
+      <div class="comment ms">// ===== PERFIL =====</div>
+
+      <div class="my ms">
+        "<span class="key">Nombre</span>":
+        "<span class="value">Juan José Arlandis Ocaña</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Título</span>":
+        "<span class="value">Estudiante de Ingeniería de Telecomunicaciones — ETSIT-UPM</span>",
+      </div>
+
+      <div class="my ms">
+        "<span class="key">Contacto</span>": [
+          <p class="ms">
+            "<span class="key">Email</span>":
+            "<a class="value" href="mailto:contact@juanjoarlandis.com" target="_blank">contact@juanjoarlandis.com</a>",
+          </p>
+          <p class="ms">
+            "<span class="key">Fecha de nacimiento</span>":
+            "<span class="value">4 may 2000</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">Nacionalidad</span>":
+            "<span class="value">Español</span>",
+          </p>
+          <p class="ms">
+            "<span class="key">LinkedIn</span>":
+            "<a class="value" href="https://www.linkedin.com/in/juan-jose-arlandis/" target="_blank">juan-jose-arlandis</a>"
+          </p>
+        ],
+      </div>
+
+      <!-- ===== RESUMEN ===== -->
+      <div class="comment ms">// ===== RESUMEN =====</div>
+      <div class="my ms">
+        "<span class="key">Resumen</span>":
+        "<span class="value">
+          Aspirante a ingeniero Telco con pasión por Blockchain · 
+          Meta ▸ combinar Telecomunicaciones + Blockchain · 
+          Autodidacta de IA y tecnologías descentralizadas
+        "</span>,
+      </div>
+
+      <!-- ===== HABILIDADES ===== -->
+      <div class="comment ms">// ===== HABILIDADES =====</div>
+
+      <div class="my ms">
+        "<span class="key">Habilidades</span>": [
+        <p class="ms">"<span class="value">Python</span>",</p>
+        <p class="ms">"<span class="value">MATLAB</span>",</p>
+        <p class="ms">"<span class="value">C++</span>",</p>
+        <p class="ms">"<span class="value">Solidity</span>",</p>
+        <p class="ms">"<span class="value">React / React Native</span>",</p>
+        <p class="ms">"<span class="value">Swift</span>",</p>
+        <p class="ms">"<span class="value">Maven / Gradle</span>",</p>
+        <p class="ms">"<span class="value">Inteligencia Artificial</span>",</p>
+        <p class="ms">"<span class="value">Teamwork</span>",</p>
+        <p class="ms">"<span class="value">Troubleshooting</span>",</p>
+        <p class="ms">"<span class="value">Problem-solving</span>",</p>
+        <p class="ms">"<span class="value">Comunicación</span>",</p>
+        <p class="ms">"<span class="value">Customer Service</span>",</p>
+        <p class="ms">"<span class="value">Social Media</span>",</p>
+        <p class="ms">"<span class="value">Public Speaking</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== IDIOMAS ===== -->
+      <div class="comment ms">// ===== IDIOMAS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Idiomas</span>": [
+        <p class="ms">
+          "<span class="key">Inglés</span>":
+          "<span class="value">Nivel intermedio (B2 Cambridge FIRST)</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Francés</span>":
+          "<span class="value">Nivel básico</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EXPERIENCIA ===== -->
+      <div class="comment ms">// ===== EXPERIENCIA =====</div>
+
+      <div class="my ms">
+        "<span class="key">Experiencia</span>": [
+        <p class="ms">
+          "<span class="key">Profesor de Blockchain y Criptomonedas</span>":
+          "<span class="value">Tradenado.net — Ene 2022 – Sep 2022</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Creador de contenido en Twitter</span>":
+          "<span class="value">Cuenta personal — 2020 – Ene 2023</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Inversor en Criptomonedas</span>":
+          "<span class="value">Freelancer — 2019</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Emprendedor en Comercio Electrónico</span>":
+          "<span class="value">Freelancer — 2019 – 2020</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Fotógrafo</span>":
+          "<span class="value">Freelancer — 2018</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== EDUCACIÓN ===== -->
+      <div class="comment ms">// ===== EDUCACIÓN =====</div>
+
+      <div class="my ms">
+        "<span class="key">Educación</span>": [
+        <p class="ms">
+          "<span class="key">Ingeniería de Telecomunicaciones</span>":
+          "<span class="value">Universidad Politécnica de Madrid (ETSIT) — 2018 – Actualidad</span>",
+        </p>
+        <p class="ms">
+          "<span class="key">Bachillerato Ciencias</span>":
+          "<span class="value">Colegio Virgen de Mirasierra — 2016 – Jun 2018 · Nota media 9</span>"
+        </p>
+        ],
+      </div>
+
+      <!-- ===== PROYECTOS ===== -->
+      <div class="comment ms">// ===== PROYECTOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Proyectos</span>": [
+        <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
+        <p class="ms">"<span class="value">Investigación de IA en el ecosistema Bittensor</span>",</p>
+        <p class="ms">"<span class="value">Programación en Solidity y despliegue de smart-contracts</span>",</p>
+        <p class="ms">"<span class="value">Diseño de tiendas Shopify (modelo Dropshipping)</span>",</p>
+        <p class="ms">"<span class="value">Investigación DeFi en Ethereum, Polkadot, Cardano</span>"</p>
+        ],
+      </div>
+
+      <!-- ===== CERTIFICADOS & CURSOS ===== -->
+      <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
+
+      <div class="my ms">
+        "<span class="key">Certificados y cursos</span>": [
+        <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/47LvfG9" target="_blank">IBM Blockchain Essentials V2</a>",</p>
+        <p class="ms">"<span class="value">Introduction to DLTs and Overledger (QNT)</span>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">SQL HackerRank Level 3</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/3PfyKh2" target="_blank">Python HackerRank Level 4</a>",</p>
+        <p class="ms">"<a class="value" href="https://bit.ly/44oKtOr" target="_blank">MATLAB Onramp</a>"</p>
+        ]
+      </div>
+    </div>
+    <!-- /#json -->
+  </main>
+
+  <!-- ================================
+       Elemento <audio> para el sonido de fondo
+       ================================ -->
+  <audio id="type-sound" src="assets/sounds/typing.mp3" preload="auto" loop></audio>
+
+  <!-- Script para animar la escritura sección a sección, sonido en loop y botón de silencio -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // ========== Variables de velocidad ==========
+      const TYPE_SPEED_SCROLL = 5;  // Velocidad de tecleo en el scroll JSON (ms)
+
+      // Elementos de audio y botón
+      const audioTecla = document.getElementById('type-sound');
+      const muteButton = document.getElementById('mute-button');
+      let isMuted = false;
+      let audioUnlocked = false;
+
+      // =============================
+      // 1) Desbloqueo del audio con primer scroll o clic
+      // =============================
+      function unlockAudio() {
+        if (!audioUnlocked) {
+          audioTecla.play()
+            .then(() => {
+              audioTecla.pause();
+              audioTecla.currentTime = 0;
+              audioUnlocked = true;
+            })
+            .catch(err => {
+              console.warn('Error al desbloquear audio:', err);
+            });
+          window.removeEventListener('scroll', unlockAudio);
+          document.removeEventListener('click', unlockAudio);
+        }
+      }
+      window.addEventListener('scroll', unlockAudio);
+      document.addEventListener('click', unlockAudio);
+
+      // =============================
+      // 2) Botón para silenciar/activar sonido
+      // =============================
+      muteButton.addEventListener('click', () => {
+        if (!audioUnlocked) {
+          // Forzamos desbloqueo si aún no se hizo
+          audioTecla.play()
+            .then(() => {
+              audioTecla.pause();
+              audioTecla.currentTime = 0;
+              audioUnlocked = true;
+            })
+            .catch(err => {
+              console.warn('Error al desbloquear audio desde botón:', err);
+            });
+        }
+        // Alternar mute/unmute
+        isMuted = !isMuted;
+        audioTecla.muted = isMuted;
+        muteButton.textContent = isMuted ? 'Activar sonido' : 'Silenciar';
+      });
+
+      // ============== Animación de scroll sección a sección ==============
+      const codeElems    = Array.from(document.querySelectorAll('#json .comment, #json .my'));
+      let nextIndex      = 0;               // Índice del siguiente elemento a tipiar
+      const intersecting = new Set();       // Elementos en vista
+
+      // Preparamos cada elemento: guardamos HTML original, fijamos altura, limpiamos contenido
+      codeElems.forEach(el => {
+        const html   = el.innerHTML;
+        el.setAttribute('data-typed-html', html);
+        const height = el.offsetHeight;
+        el.style.minHeight = `${height}px`;
+        el.innerHTML = '';
+      });
+
+      // Función para iniciar el tipeo de un elemento (con sonido en loop)
+      function startTyping(el) {
+        // Añadimos clases para indicar estado
+        el.classList.add('visible');
+        el.classList.add('typing');
+
+        // Si audio desbloqueado y no está silenciado, reproducir en loop
+        if (audioUnlocked && !isMuted && audioTecla.paused) {
+          audioTecla.play().catch(err => {
+            console.warn('No se pudo iniciar audioTecla en startTyping():', err);
+          });
+        }
+
+        // Crear instancia de Typed.js para este elemento
+        new Typed(el, {
+          strings: [el.getAttribute('data-typed-html')],
+          typeSpeed: TYPE_SPEED_SCROLL,
+          showCursor: false,
+          contentType: 'html',
+          onComplete: () => {
+            el.classList.remove('typing');
+            el.classList.add('typed-done');
+            observer.unobserve(el);
+            nextIndex++;
+
+            // Tras completar, comprobar si el siguiente está en vista
+            const siguiente = codeElems[nextIndex];
+            if (nextIndex < codeElems.length && intersecting.has(siguiente)) {
+              startTyping(siguiente);
+            } else {
+              // Si no hay siguiente visible o ya acabó, pausamos el sonido
+              audioTecla.pause();
+            }
+          }
+        });
+      }
+
+      // Callback del IntersectionObserver
+      function handleIntersections(entries) {
+        entries.forEach(entry => {
+          const el = entry.target;
+          if (entry.isIntersecting) {
+            intersecting.add(el);
+          } else {
+            intersecting.delete(el);
+          }
+        });
+        // Si el siguiente elemento en cola está en vista y no ha empezado, iniciarlo
+        if (nextIndex < codeElems.length) {
+          const siguiente = codeElems[nextIndex];
+          if (
+            intersecting.has(siguiente) &&
+            !siguiente.classList.contains('typed-done') &&
+            !siguiente.classList.contains('typing')
+          ) {
+            startTyping(siguiente);
+          }
+        }
+      }
+
+      // Creamos el IntersectionObserver
+      const observer = new IntersectionObserver(handleIntersections, {
+        root: null,
+        threshold: 0.1
+      });
+
+      // Empezamos a observar cada elemento
+      codeElems.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

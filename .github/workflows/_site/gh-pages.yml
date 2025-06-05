@@ -1,0 +1,33 @@
+# .github/workflows/build-jekyll.yml
+
+name: CI / Build Jekyll
+
+on:
+  push:
+    branches:
+      - main # asegúrate de que coincide con la rama que usas para Pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1️⃣ Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: 2️⃣ Setup Ruby y Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2" # pincha una versión concreta (no “3.x”)
+          bundler-cache: true # cachea ~/.bundle para acelerar instal.
+
+      - name: 3️⃣ Instalar las gemas (incluido hacked-jekyll)
+        run: bundle install
+
+      - name: 4️⃣ Generar el sitio con Jekyll
+        run: bundle exec jekyll build --source . --destination docs
+
+      - name: 5️⃣ Mostrar contenido de docs/ (solo para debug)
+        run: |
+          echo "=== Contenido de docs/ después del build ==="
+          ls -R docs/
