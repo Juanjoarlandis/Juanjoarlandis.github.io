@@ -149,11 +149,8 @@
                 "files": [
                     "estructura_directorios.json",
                     "index.html",
-                    "Gemfile.lock",
                     "robots.txt",
                     "404.html",
-                    "Gemfile",
-                    "hacked-jekyll.gemspec",
                     "sitemap.xml"
                 ]
             },
