@@ -23,11 +23,50 @@
   <!-- Typed.js (para animación de escritura) -->
   <script src="assets/js/typed.umd.js"></script>
 
-  <!-- ===== Estilos adicionales ===== -->
+  <!-- Estilos adicionales para la imagen de perfil, animación, botón y números de línea -->
   <style>
     /* ================================
-       Botón de silenciar/activar sonido
+       (1) Numeración de líneas en #json
        ================================ */
+    /* Reiniciar el contador en el contenedor */
+    #json {
+      counter-reset: linenumber;
+      position: relative;       /* Para que los hijos posicionados usen este contenedor como referencia */
+      padding-left: 3rem;       /* Espacio a la izquierda para los números de línea */
+      font-family: "hack", monospace; /* Aseguramos tipografía monoespaciada */
+    }
+    /* Cada comentario (.comment), bloque de datos (.my) y cada párrafo interno incrementa el contador */
+    #json .comment,
+    #json .my,
+    #json .my p {
+      counter-increment: linenumber;
+      position: relative;       /* Para que ::before se posicione relativo a este bloque */
+      display: block;           /* Cada "línea" es un bloque separado */
+      white-space: pre-wrap;    /* Para respetar saltos de línea y espacios */
+      overflow: hidden;         /* Reservamos espacio antes de la animación */
+      margin: 0;                /* Eliminamos márgenes extra por defecto */
+      padding-left: 0.5rem;     /* Separación interna entre texto y número */
+    }
+    /* Pseudoelemento ::before para mostrar el número de línea */
+    #json .comment::before,
+    #json .my::before,
+    #json .my p::before {
+      content: counter(linenumber);
+      position: absolute;
+      left: -3rem;              /* Ajusta para centrar sobre el padding-left de #json */
+      width: 2.5rem;            /* Ancho fijo para alinear los números a la derecha */
+      text-align: right;
+      color: #888;              /* Gris medio */
+      opacity: 0.3;             /* Poca opacidad */
+      font-size: 0.9em;         /* Ligeramente más pequeño que el texto */
+      top: 0;
+      line-height: 1.2em;       /* Coincide con la altura de línea de los bloques de código */
+    }
+
+    /* ================================
+       (2) Estilos básicos restantes
+       ================================ */
+    /* Botón de silenciar/activar sonido */
     #mute-button {
       position: fixed;
       top: 1rem;
@@ -41,14 +80,11 @@
       z-index: 100;
     }
 
-    /* ================================
-       Imagen de perfil
-       ================================ */
+    /* Imagen de perfil centrada */
     .perfil-container {
       text-align: center;
       margin-bottom: 1.5rem;
     }
-
     .perfil-img {
       display: block;
       width: 200px;
@@ -59,57 +95,25 @@
       margin: 0 auto;
     }
 
-    /* ================================
-       Animación de aparición con escritura al hacer scroll
-       ================================ */
+    /* Bloques de JSON (comentarios y datos) */
     #json .comment,
     #json .my {
-      /* Ocultamos inicialmente y forzamos overflow:hidden para reservar espacio */
       opacity: 0;
       transition: opacity 0.3s ease-in;
-      overflow: hidden;
-      white-space: pre-wrap;      /* para que respete saltos de línea y espacios si hubiera */
-      display: block;             /* cada bloque de texto mantendrá su propio flow */
     }
-
     #json .comment.visible,
     #json .my.visible {
       opacity: 1;
     }
 
-    /* ================================
-       Cursor estilo consola ▊ (parpadeo)
-       ================================ */
-    .typed-cursor {
-      display: inline-block;      /* ¡IMPORTANTE! Sin esto, el cursor se queda en bloque separado */
-      font-weight: bold;
-      animation: consoleBlink 1s steps(2, end) infinite;
-      vertical-align: bottom;     /* opcional, ajusta la posición vertical del cursor respecto al texto */
-    }
-    @keyframes consoleBlink {
-      0%, 100% {
-        opacity: 1;
-        color: var(--oc-green-4);
-      }
-      50% {
-        opacity: 0.25;
-        color: var(--oc-green-6);
-      }
-    }
-
-    /* ================================
-       Márgenes para sangrías (si usas .ms, .mt, etc.)
-       ================================ */
+    /* Sangrías (márgenes) si usas .ms y .mt */
     .ms { margin-left: 1.5rem; }
     .mt { margin-top: 1.5rem; }
 
-    /* ================================
-       Colores para llaves, valores y comentarios
-       (ya vienen en tu stylesheet principal)
-       ================================ */
-    .key   { color: #9cdcfe; }  /* ejemplo: color de las “keys” */
-    .value { color: #ce9178; }  /* ejemplo: color de los “values”  */
-    .comment { color: #6a9955; }/* ejemplo: color de comentarios     */
+    /* Colores de “keys”, “values” y “comentarios” */
+    .key   { color: #9cdcfe; text-transform: none; }
+    .value { color: #ce9178; text-transform: none; }
+    .comment { color: #6a9955; }
   </style>
 </head>
 
@@ -290,13 +294,10 @@
        ================================ -->
   <audio id="type-sound" src="assets/sounds/typing.mp3" preload="auto" loop></audio>
 
-  <!-- ===================================================
-       Script para animar la escritura sección a sección,
-       sonido en loop y botón de silencio
-       =================================================== -->
+  <!-- Script para animar la escritura sección a sección, sonido en loop y botón de silencio -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // ===== Variables de velocidad =====
+      // ========== Variables de velocidad ==========
       const TYPE_SPEED_SCROLL = 5;  // Velocidad de tecleo en el scroll JSON (ms)
 
       // Elementos de audio y botón
@@ -362,7 +363,7 @@
         el.innerHTML = '';
       });
 
-      // Función para iniciar el tipeo de un elemento (con sonido en loop y cursor)
+      // Función para iniciar el tipeo de un elemento (con sonido en loop)
       function startTyping(el) {
         // Añadimos clases para indicar estado
         el.classList.add('visible');
@@ -375,12 +376,11 @@
           });
         }
 
-        // Crear instancia de Typed.js para este elemento con cursor ▊
+        // Crear instancia de Typed.js para este elemento
         new Typed(el, {
           strings: [el.getAttribute('data-typed-html')],
           typeSpeed: TYPE_SPEED_SCROLL,
-          showCursor: true,           // Mostramos cursor
-          cursorChar: '▊',            // Carácter del cursor
+          showCursor: false,   // Sin cursor
           contentType: 'html',
           onComplete: () => {
             el.classList.remove('typing');
@@ -393,6 +393,7 @@
             if (nextIndex < codeElems.length && intersecting.has(siguiente)) {
               startTyping(siguiente);
             } else {
+              // Si no hay siguiente visible o ya acabó, pausamos el sonido
               audioTecla.pause();
             }
           }
