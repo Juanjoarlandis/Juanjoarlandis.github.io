@@ -1,0 +1,146 @@
+[
+    {
+        "name": "juanjoarlandis.github.io",
+        "dirs": [
+            {
+                "name": "assets",
+                "dirs": [
+                    {
+                        "name": "images",
+                        "dirs": [],
+                        "files": [
+                            "perfil.jpg"
+                        ]
+                    },
+                    {
+                        "name": "css",
+                        "dirs": [],
+                        "files": [
+                            "open-color.css",
+                            "normalize.css",
+                            "styles.scss"
+                        ]
+                    },
+                    {
+                        "name": "webfonts",
+                        "dirs": [],
+                        "files": [
+                            "hack-regular-subset.woff2",
+                            "hack-italic-subset.woff2"
+                        ]
+                    },
+                    {
+                        "name": "sounds",
+                        "dirs": [],
+                        "files": [
+                            "typing.mp3"
+                        ]
+                    },
+                    {
+                        "name": "js",
+                        "dirs": [],
+                        "files": [
+                            "typed.umd.js"
+                        ]
+                    }
+                ],
+                "files": [
+                    "favicon.ico",
+                    "apple-touch-icon.png",
+                    "android-chrome-192x192.png",
+                    "android-chrome-512x512.png",
+                    "site.webmanifest",
+                    "favicon-16x16.png",
+                    "favicon-32x32.png"
+                ]
+            },
+            {
+                "name": "_sass",
+                "dirs": [],
+                "files": [
+                    "_custom.scss",
+                    "_default.scss"
+                ]
+            },
+            {
+                "name": "_data",
+                "dirs": [],
+                "files": [
+                    "json.yml"
+                ]
+            },
+            {
+                "name": "docs",
+                "dirs": [
+                    {
+                        "name": "assets",
+                        "dirs": [
+                            {
+                                "name": "css",
+                                "dirs": [],
+                                "files": [
+                                    "styles.css",
+                                    "open-color.css",
+                                    "normalize.css"
+                                ]
+                            },
+                            {
+                                "name": "webfonts",
+                                "dirs": [],
+                                "files": [
+                                    "hack-regular-subset.woff2",
+                                    "hack-italic-subset.woff2"
+                                ]
+                            },
+                            {
+                                "name": "js",
+                                "dirs": [],
+                                "files": [
+                                    "typed.umd.js"
+                                ]
+                            }
+                        ],
+                        "files": [
+                            "favicon.ico",
+                            "apple-touch-icon.png",
+                            "android-chrome-192x192.png",
+                            "android-chrome-512x512.png",
+                            "site.webmanifest",
+                            "favicon-16x16.png",
+                            "favicon-32x32.png"
+                        ]
+                    }
+                ],
+                "files": [
+                    "index.html",
+                    "Gemfile.lock",
+                    "robots.txt",
+                    "404.html",
+                    "Gemfile",
+                    "sitemap.xml"
+                ]
+            },
+            {
+                "name": "_layouts",
+                "dirs": [],
+                "files": [
+                    "home.html",
+                    "404.html",
+                    "default.html"
+                ]
+            }
+        ],
+        "files": [
+            ".nojekyll",
+            "Gemfile.lock",
+            "LICENSE",
+            ".gitignore",
+            "Gemfile",
+            "404.md",
+            "hacked-jekyll.gemspec",
+            "_config.yml",
+            "README.md",
+            "index.md"
+        ]
+    }
+]
