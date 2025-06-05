@@ -165,11 +165,11 @@ main {
 
 @media (min-width: 576px) {
   main {
-    font-size: 14px;
+    font-size: 12px;
     width: 90%; } }
 @media (min-width: 768px) {
   main {
-    font-size: 14px;
+    font-size: 12px;
     width: 90%; } }
 h1, p {
   margin: 0; }
