@@ -23,7 +23,10 @@
   <!-- Typed.js (para animación de escritura) -->
   <script src="assets/js/typed.umd.js"></script>
 
-  <!-- Estilos adicionales para la imagen de perfil, animación y botón -->
+  <!-- html2pdf.js para exportar a PDF -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <!-- Estilos adicionales para la imagen de perfil, animación, botón y barra superior -->
   <style>
     /* ================================
        Botón de silenciar/activar sonido
@@ -38,7 +41,43 @@
       border: none;
       border-radius: 0.25rem;
       cursor: pointer;
-      z-index: 100;
+      z-index: 110;
+    }
+
+    /* ================================
+       Barra superior “Modo reclutador”
+       ================================ */
+    #topbar{
+      position: fixed;
+      inset:0 0 auto 0;
+      height: 2.5rem;
+      padding:.4rem .8rem;
+      background: rgba(0,0,0,.85);
+      backdrop-filter: blur(6px);
+      display:flex;
+      gap:.5rem;
+      align-items:center;
+      z-index:120;
+      font-family:inherit;
+    }
+    #recruiter-toggle,
+    #download-pdf{
+      border:none;
+      border-radius:.25rem;
+      padding:.35rem .75rem;
+      cursor:pointer;
+      color:#fff
+    }
+    #recruiter-toggle{background:var(--oc-green-7);}
+    #download-pdf   {background:var(--oc-green-5);display:none;}
+    #cv-search{
+      flex:1 1 230px;
+      border:none;
+      border-radius:.25rem;
+      background:var(--oc-gray-8);
+      padding:.4rem .6rem;
+      color:#fff;
+      display:none;
     }
 
     /* ================================
@@ -66,6 +105,7 @@
     #json .my {
       opacity: 0;
       transition: opacity 0.3s ease-in;
+      overflow:hidden; /* mantener espacio */
     }
 
     #json .comment.visible,
@@ -74,16 +114,35 @@
     }
 
     /* ================================
-       Mantener espacio reservado antes de iniciar Typed.js
+       Cursor estilo consola ▊ (script-blink)
        ================================ */
-    #json .comment,
-    #json .my {
-      overflow: hidden;
+    .typed-cursor{
+      font-weight:bold;
+      animation:consoleBlink 1s steps(2,end) infinite;
+    }
+    @keyframes consoleBlink{
+      0%,100%{opacity:1;color:var(--oc-green-4);}
+      50%    {opacity:.25;color:var(--oc-green-6);}
+    }
+
+    /* ================================
+       Modo accesible: sin animaciones
+       ================================ */
+    .recruiter-mode *, .recruiter-mode *::before, .recruiter-mode *::after{
+      animation:none!important;
+      transition:none!important;
     }
   </style>
 </head>
 
 <body>
+  <!-- Barra superior -->
+  <header id="topbar">
+    <button id="recruiter-toggle" title="Activar modo reclutador">🕵️‍♂️</button>
+    <input  id="cv-search" type="search" placeholder="Buscar…">
+    <button id="download-pdf">Descargar PDF</button>
+  </header>
+
   <!-- Botón para silenciar/activar sonido -->
   <button id="mute-button">Silenciar</button>
 
@@ -266,15 +325,20 @@
        ================================ -->
   <audio id="type-sound" src="assets/sounds/typing.mp3" preload="auto" loop></audio>
 
-  <!-- Script para animar la escritura sección a sección, sonido en loop y botón de silencio -->
+  <!-- Script para animar la escritura sección a sección, sonido en loop, modo reclutador y PDF -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // ========== Variables de velocidad ==========
       const TYPE_SPEED_SCROLL = 5;  // Velocidad de tecleo en el scroll JSON (ms)
 
-      // Elementos de audio y botón
-      const audioTecla = document.getElementById('type-sound');
-      const muteButton = document.getElementById('mute-button');
+      // Elementos globales
+      const audioTecla   = document.getElementById('type-sound');
+      const muteButton   = document.getElementById('mute-button');
+      const toggleBtn    = document.getElementById('recruiter-toggle');
+      const pdfBtn       = document.getElementById('download-pdf');
+      const searchInput  = document.getElementById('cv-search');
+      const root         = document.documentElement;
+
       let isMuted = false;
       let audioUnlocked = false;
 
@@ -289,9 +353,7 @@
               audioTecla.currentTime = 0;
               audioUnlocked = true;
             })
-            .catch(err => {
-              console.warn('Error al desbloquear audio:', err);
-            });
+            .catch(()=>{});
           window.removeEventListener('scroll', unlockAudio);
           document.removeEventListener('click', unlockAudio);
         }
@@ -303,19 +365,7 @@
       // 2) Botón para silenciar/activar sonido
       // =============================
       muteButton.addEventListener('click', () => {
-        if (!audioUnlocked) {
-          // Forzamos desbloqueo si aún no se hizo
-          audioTecla.play()
-            .then(() => {
-              audioTecla.pause();
-              audioTecla.currentTime = 0;
-              audioUnlocked = true;
-            })
-            .catch(err => {
-              console.warn('Error al desbloquear audio desde botón:', err);
-            });
-        }
-        // Alternar mute/unmute
+        if (!audioUnlocked) unlockAudio();
         isMuted = !isMuted;
         audioTecla.muted = isMuted;
         muteButton.textContent = isMuted ? 'Activar sonido' : 'Silenciar';
@@ -326,7 +376,7 @@
       let nextIndex      = 0;               // Índice del siguiente elemento a tipiar
       const intersecting = new Set();       // Elementos en vista
 
-      // Preparamos cada elemento: guardamos HTML original, fijamos altura, limpiamos contenido
+      // Preparamos cada elemento
       codeElems.forEach(el => {
         const html   = el.innerHTML;
         el.setAttribute('data-typed-html', html);
@@ -337,22 +387,18 @@
 
       // Función para iniciar el tipeo de un elemento (con sonido en loop)
       function startTyping(el) {
-        // Añadimos clases para indicar estado
-        el.classList.add('visible');
-        el.classList.add('typing');
+        el.classList.add('visible','typing');
 
-        // Si audio desbloqueado y no está silenciado, reproducir en loop
         if (audioUnlocked && !isMuted && audioTecla.paused) {
-          audioTecla.play().catch(err => {
-            console.warn('No se pudo iniciar audioTecla en startTyping():', err);
-          });
+          audioTecla.play().catch(()=>{});
         }
 
-        // Crear instancia de Typed.js para este elemento
+        // Typed.js con cursor ▊
         new Typed(el, {
           strings: [el.getAttribute('data-typed-html')],
           typeSpeed: TYPE_SPEED_SCROLL,
-          showCursor: false,
+          showCursor: true,           // <-- ahora mostramos cursor
+          cursorChar: '▊',            // <-- carácter solicitado
           contentType: 'html',
           onComplete: () => {
             el.classList.remove('typing');
@@ -360,49 +406,72 @@
             observer.unobserve(el);
             nextIndex++;
 
-            // Tras completar, comprobar si el siguiente está en vista
             const siguiente = codeElems[nextIndex];
             if (nextIndex < codeElems.length && intersecting.has(siguiente)) {
               startTyping(siguiente);
             } else {
-              // Si no hay siguiente visible o ya acabó, pausamos el sonido
               audioTecla.pause();
             }
           }
         });
       }
 
-      // Callback del IntersectionObserver
-      function handleIntersections(entries) {
+      // IntersectionObserver
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           const el = entry.target;
-          if (entry.isIntersecting) {
-            intersecting.add(el);
-          } else {
-            intersecting.delete(el);
-          }
+          entry.isIntersecting ? intersecting.add(el) : intersecting.delete(el);
         });
-        // Si el siguiente elemento en cola está en vista y no ha empezado, iniciarlo
-        if (nextIndex < codeElems.length) {
-          const siguiente = codeElems[nextIndex];
-          if (
-            intersecting.has(siguiente) &&
-            !siguiente.classList.contains('typed-done') &&
-            !siguiente.classList.contains('typing')
-          ) {
-            startTyping(siguiente);
-          }
+        const siguiente = codeElems[nextIndex];
+        if (
+          siguiente &&
+          intersecting.has(siguiente) &&
+          !siguiente.classList.contains('typed-done') &&
+          !siguiente.classList.contains('typing')
+        ) {
+          startTyping(siguiente);
         }
-      }
+      }, { root: null, threshold: 0.1 });
 
-      // Creamos el IntersectionObserver
-      const observer = new IntersectionObserver(handleIntersections, {
-        root: null,
-        threshold: 0.1
+      codeElems.forEach(el => observer.observe(el));
+
+      // =============================
+      // 3)  Modo reclutador
+      // =============================
+      toggleBtn.addEventListener('click', () =>{
+        const active = root.classList.toggle('recruiter-mode');
+        pdfBtn.style.display     = active ? 'inline-block':'none';
+        searchInput.style.display= active ? 'inline-block':'none';
+
+        // Silenciamos y paramos animaciones audibles
+        isMuted = active ? true : isMuted;
+        audioTecla.muted = isMuted;
+        if (active) audioTecla.pause();
+        muteButton.textContent = isMuted ? 'Activar sonido' : 'Silenciar';
       });
 
-      // Empezamos a observar cada elemento
-      codeElems.forEach(el => observer.observe(el));
+      // =============================
+      // 4) Generar PDF on-the-fly
+      // =============================
+      pdfBtn.addEventListener('click', () =>{
+        const opt={
+          filename:'CV_JuanJoseArlandis.pdf',
+          margin:[10,10],
+          html2canvas:{scale:2,backgroundColor:'#1e1e1e'},
+          jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+        };
+        html2pdf().set(opt).from(document.querySelector('main')).save();
+      });
+
+      // =============================
+      // 5) Búsqueda en vivo
+      // =============================
+      searchInput.addEventListener('input', e=>{
+        const q = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('#json .my, #json .comment').forEach(el=>{
+          el.style.display = (!q || el.textContent.toLowerCase().includes(q)) ? '' : 'none';
+        });
+      });
     });
   </script>
 </body>
