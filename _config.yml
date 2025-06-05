@@ -1,16 +1,59 @@
-title: Hacked Jekyll
-description: Jekyll microtheme that looks like JSON
+# Archivo: _config.yml
 
+# ----------------------------------------
+# Metadatos del sitio
+# ----------------------------------------
+title: "Currículum – Juan José Arlandis Ocaña"
+description: "CV en formato JSON animado con Typed.js sobre Jekyll"
+url: "https://juanjoarlandis.github.io" # Tu dominio de GitHub Pages
+baseurl: "" # Importante: cadena vacía para sitio de usuario Pages
+
+# ----------------------------------------
+# Tema y configuración de Jekyll
+# ----------------------------------------
 theme: hacked-jekyll
 
-exclude:
-  - LICENSE
-  - README.md
-  - vendor/
-
+# ----------------------------------------
+# Plugins que utiliza el sitio
+# ----------------------------------------
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# ----------------------------------------
+# Archivos y carpetas a excluir del build
+# ----------------------------------------
+exclude:
+  - LICENSE
+  - README.md
+  - vendor/
+  - docs/ # Si eliminaste o no necesitas la carpeta de demostración
+  - Gemfile
+  - Gemfile.lock
+  - hacked-jekyll.gemspec
+  - _sass/
+  - _layouts/default.html # Si sólo usas _layouts/home.html
+  - _layouts/404.html # Si no quieres página 404 personalizada
+  - .github/ # Ajusta según tu estructura real
+  - .gitignore
+  - .nojekyll
+
+# ----------------------------------------
+# Configuración de SASS
+# ----------------------------------------
 sass:
   sourcemap: never
+# ----------------------------------------
+# Configuración adicional (opcional)
+# ----------------------------------------
+# Si deseas forzar que todas las URLs de enlaces internos usen _relative_url_, activa esto:
+# permalink: pretty
+
+# Si quieres que GitHub Pages enseñe una página 404 personalizada (coloca 404.md en la raíz):
+# defaults:
+#   - scope:
+#       path: ""
+#       type: "pages"
+#     values:
+#       layout: "default"
+
