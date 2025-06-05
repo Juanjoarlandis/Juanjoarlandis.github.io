@@ -23,50 +23,11 @@
   <!-- Typed.js (para animación de escritura) -->
   <script src="assets/js/typed.umd.js"></script>
 
-  <!-- Estilos adicionales para la imagen de perfil, animación, botón y números de línea -->
+  <!-- Estilos adicionales para la imagen de perfil, animación y botón -->
   <style>
     /* ================================
-       (1) Numeración de líneas en #json
+       Botón de silenciar/activar sonido
        ================================ */
-    /* Reiniciar el contador en el contenedor */
-    #json {
-      counter-reset: linenumber;
-      position: relative;       /* Para que los hijos posicionados usen este contenedor como referencia */
-      padding-left: 3rem;       /* Espacio a la izquierda para los números de línea */
-      font-family: "hack", monospace; /* Aseguramos tipografía monoespaciada */
-    }
-    /* Cada comentario (.comment), bloque de datos (.my) y cada párrafo interno incrementa el contador */
-    #json .comment,
-    #json .my,
-    #json .my p {
-      counter-increment: linenumber;
-      position: relative;       /* Para que ::before se posicione relativo a este bloque */
-      display: block;           /* Cada "línea" es un bloque separado */
-      white-space: pre-wrap;    /* Para respetar saltos de línea y espacios */
-      overflow: hidden;         /* Reservamos espacio antes de la animación */
-      margin: 0;                /* Eliminamos márgenes extra por defecto */
-      padding-left: 0.5rem;     /* Separación interna entre texto y número */
-    }
-    /* Pseudoelemento ::before para mostrar el número de línea */
-    #json .comment::before,
-    #json .my::before,
-    #json .my p::before {
-      content: counter(linenumber);
-      position: absolute;
-      left: -3rem;              /* Ajusta para centrar sobre el padding-left de #json */
-      width: 2.5rem;            /* Ancho fijo para alinear los números a la derecha */
-      text-align: right;
-      color: #888;              /* Gris medio */
-      opacity: 0.3;             /* Poca opacidad */
-      font-size: 0.9em;         /* Ligeramente más pequeño que el texto */
-      top: 0;
-      line-height: 1.2em;       /* Coincide con la altura de línea de los bloques de código */
-    }
-
-    /* ================================
-       (2) Estilos básicos restantes
-       ================================ */
-    /* Botón de silenciar/activar sonido */
     #mute-button {
       position: fixed;
       top: 1rem;
@@ -80,11 +41,14 @@
       z-index: 100;
     }
 
-    /* Imagen de perfil centrada */
+    /* ================================
+       Imagen de perfil
+       ================================ */
     .perfil-container {
       text-align: center;
       margin-bottom: 1.5rem;
     }
+
     .perfil-img {
       display: block;
       width: 200px;
@@ -95,25 +59,27 @@
       margin: 0 auto;
     }
 
-    /* Bloques de JSON (comentarios y datos) */
+    /* ================================
+       Animación de aparición con escritura al hacer scroll
+       ================================ */
     #json .comment,
     #json .my {
       opacity: 0;
       transition: opacity 0.3s ease-in;
     }
+
     #json .comment.visible,
     #json .my.visible {
       opacity: 1;
     }
 
-    /* Sangrías (márgenes) si usas .ms y .mt */
-    .ms { margin-left: 1.5rem; }
-    .mt { margin-top: 1.5rem; }
-
-    /* Colores de “keys”, “values” y “comentarios” */
-    .key   { color: #9cdcfe; text-transform: none; }
-    .value { color: #ce9178; text-transform: none; }
-    .comment { color: #6a9955; }
+    /* ================================
+       Mantener espacio reservado antes de iniciar Typed.js
+       ================================ */
+    #json .comment,
+    #json .my {
+      overflow: hidden;
+    }
   </style>
 </head>
 
@@ -184,6 +150,7 @@
 
       <!-- ===== HABILIDADES ===== -->
       <div class="comment ms">// ===== HABILIDADES =====</div>
+
       <div class="my ms">
         "<span class="key">Habilidades</span>": [
         <p class="ms">"<span class="value">Python</span>",</p>
@@ -206,6 +173,7 @@
 
       <!-- ===== IDIOMAS ===== -->
       <div class="comment ms">// ===== IDIOMAS =====</div>
+
       <div class="my ms">
         "<span class="key">Idiomas</span>": [
         <p class="ms">
@@ -221,6 +189,7 @@
 
       <!-- ===== EXPERIENCIA ===== -->
       <div class="comment ms">// ===== EXPERIENCIA =====</div>
+
       <div class="my ms">
         "<span class="key">Experiencia</span>": [
         <p class="ms">
@@ -248,6 +217,7 @@
 
       <!-- ===== EDUCACIÓN ===== -->
       <div class="comment ms">// ===== EDUCACIÓN =====</div>
+
       <div class="my ms">
         "<span class="key">Educación</span>": [
         <p class="ms">
@@ -263,6 +233,7 @@
 
       <!-- ===== PROYECTOS ===== -->
       <div class="comment ms">// ===== PROYECTOS =====</div>
+
       <div class="my ms">
         "<span class="key">Proyectos</span>": [
         <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
@@ -275,6 +246,7 @@
 
       <!-- ===== CERTIFICADOS & CURSOS ===== -->
       <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
+
       <div class="my ms">
         "<span class="key">Certificados y cursos</span>": [
         <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
@@ -380,7 +352,7 @@
         new Typed(el, {
           strings: [el.getAttribute('data-typed-html')],
           typeSpeed: TYPE_SPEED_SCROLL,
-          showCursor: false,   // Sin cursor
+          showCursor: false,
           contentType: 'html',
           onComplete: () => {
             el.classList.remove('typing');
