@@ -1,36 +1,33 @@
-# .github/workflows/gh-pages.yml
+# .github/workflows/build-jekyll.yml
 
-name: Publicar Jekyll en GitHub Pages
+name: CI / Build Jekyll
 
 on:
   push:
     branches:
-      - main # O la rama que uses para tu sitio
+      - main # asegúrate de que coincide con la rama que usas para Pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1️⃣ Hacer checkout del repositorio
+      - name: 1️⃣ Checkout del repositorio
         uses: actions/checkout@v3
 
-      # (Opcional) Si necesitas instalar gemas de algún Gemfile,
-      # puedes descomentar esto y usar una versión concreta de Ruby:
-      #
-      # - name: 2️⃣ Instalar Ruby y Bundler
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: '3.2.2'    # Pincha aquí una versión válida
-      #     bundler-cache: true
-
-      - name: 3️⃣ Build de Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - name: 2️⃣ Setup Ruby y Bundler
+        uses: ruby/setup-ruby@v1
         with:
-          source: "." # Lee tus fuentes desde la raíz
-          destination: "docs" # Genera todo en /docs
+          ruby-version: "3.2.2" # pincha una versión concreta (no “3.x”)
+          bundler-cache: true # cachea ~/.bundle para acelerar instal.
 
-      - name: 4️⃣ Verificar contenido de docs/
+      - name: 3️⃣ Instalar las gemas (incluido hacked-jekyll)
+        run: bundle install
+
+      - name: 4️⃣ Generar el sitio con Jekyll
+        run: bundle exec jekyll build --source . --destination docs
+
+      - name: 5️⃣ Mostrar contenido de docs/ (solo para debug)
         run: |
-          echo "=== CONTENIDO DE docs/ tras el build ==="
+          echo "=== Contenido de docs/ después del build ==="
           ls -R docs/
