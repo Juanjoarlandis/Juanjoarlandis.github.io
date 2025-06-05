@@ -23,7 +23,7 @@
   <!-- Typed.js (para animación de escritura) -->
   <script src="assets/js/typed.umd.js"></script>
 
-  <!-- Estilos adicionales para la imagen de perfil, animación y botón -->
+  <!-- Estilos adicionales para la imagen de perfil, animación, cursor parpadeante y botón -->
   <style>
     /* ================================
        Botón de silenciar/activar sonido
@@ -66,6 +66,7 @@
     #json .my {
       opacity: 0;
       transition: opacity 0.3s ease-in;
+      overflow: hidden; /* Mantener espacio antes de tipeo */
     }
 
     #json .comment.visible,
@@ -74,11 +75,21 @@
     }
 
     /* ================================
-       Mantener espacio reservado antes de iniciar Typed.js
+       Cursor estilo consola ▊ (blinking)
        ================================ */
-    #json .comment,
-    #json .my {
-      overflow: hidden;
+    .typed-cursor {
+      font-weight: bold;
+      animation: consoleBlink 1s steps(2, end) infinite;
+    }
+    @keyframes consoleBlink {
+      0%, 100% {
+        opacity: 1;
+        color: var(--oc-green-4);
+      }
+      50% {
+        opacity: 0.25;
+        color: var(--oc-green-6);
+      }
     }
   </style>
 </head>
@@ -335,7 +346,7 @@
         el.innerHTML = '';
       });
 
-      // Función para iniciar el tipeo de un elemento (con sonido en loop)
+      // Función para iniciar el tipeo de un elemento (con sonido en loop y cursor)
       function startTyping(el) {
         // Añadimos clases para indicar estado
         el.classList.add('visible');
@@ -348,11 +359,12 @@
           });
         }
 
-        // Crear instancia de Typed.js para este elemento
+        // Crear instancia de Typed.js para este elemento con cursor ▊
         new Typed(el, {
           strings: [el.getAttribute('data-typed-html')],
           typeSpeed: TYPE_SPEED_SCROLL,
-          showCursor: false,
+          showCursor: true,           // Ahora mostramos cursor
+          cursorChar: '▊',            // Carácter del cursor
           contentType: 'html',
           onComplete: () => {
             el.classList.remove('typing');
