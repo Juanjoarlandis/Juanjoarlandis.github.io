@@ -1,0 +1,140 @@
+// _sass/_custom.scss (versión corregida con paleta de tema oscuro de VSCode)
+
+// ==================================
+// Definición de variables de color
+// ==================================
+$color_bg:      #1e1e1e;    // Fondo oscuro similar a VSCode Dark
+$color_punct:   #d4d4d4;    // Color de texto predeterminado (puntuación)
+$color_key:     #9cdcfe;    // Claves de JSON en azul claro
+$color_value:   #ce9178;    // Valores de JSON en naranja/rosa
+$color_hover:   #3794ff;    // Color para enlaces al pasar el ratón
+
+// Transformaciones de texto (puedes dejarlas o cambiarlas según prefieras)
+$transform_key: none;       // Sin transformación (por defecto)
+$transform_value: none;     // Sin transformación (por defecto)
+
+
+// ==================================
+// Layout: bloque JSON scrollable
+// ==================================
+main {
+  position: static;          /* eliminamos el centrado absoluto */
+  transform: none;
+  margin: 2.5rem auto;       /* centra horizontalmente con margen */
+  width: 92%;
+  max-width: 80ch;           /* limita ancho para mejor lectura */
+  overflow-x: auto;          /* por si alguna línea es muy larga */
+}
+
+/* Hace que el body siempre tenga scroll si lo necesita */
+html,
+body {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "hack";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../webfonts/hack-regular-subset.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "hack";
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+  src: url("../webfonts/hack-italic-subset.woff2") format("woff2");
+}
+
+body {
+  font-family: "hack", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: $color_bg;
+  color: $color_punct;
+}
+
+@media (min-width: 576px) {
+  main {
+    font-size: 18px;
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    font-size: 20px;
+    width: 80%;
+  }
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  font-style: italic;
+}
+
+a:hover,
+a:active {
+  color: $color_hover;
+}
+
+
+// ==================================
+// Ajuste para #json / Typed.js
+// ==================================
+#json {
+  /* Permitimos el ajuste de líneas para movilidad y evitar scroll horizontal */
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+/* Opcional: si se quiere asegurar wrap en móviles */
+@media (max-width: 480px) {
+  #json {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}
+
+/* Mostrar llaves envolventes alrededor del contenido JSON */
+#json:before {
+  content: "{";
+}
+
+#json:after {
+  content: "}";
+}
+
+.my {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mt {
+  margin-top: 1.5rem;
+}
+
+.ms {
+  margin-left: 1.5rem;
+}
+
+/* Estilo para claves (key) en JSON */
+.key {
+  color: $color_key;
+  text-transform: $transform_key;
+}
+
+/* Estilo para valores (value) y posibles errores */
+.error,
+.value {
+  color: $color_value;
+  text-transform: $transform_value;
+}

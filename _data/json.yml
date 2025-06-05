@@ -1,0 +1,110 @@
+# _data/json.yml
+
+- comment: "// ===== PERFIL ====="
+
+- key: Nombre
+  value: Juan José Arlandis Ocaña
+
+- key: Título
+  value: Estudiante de Ingeniería de Telecomunicaciones — ETSIT-UPM
+
+- key: Contacto
+  value:
+    - key: Email
+      value: contact@juanjoarlandis.com
+      url: "mailto:contact@juanjoarlandis.com"
+    - key: Fecha de nacimiento
+      value: "4 may 2000"
+    - key: Nacionalidad
+      value: Español
+    - key: LinkedIn
+      value: juan-jose-arlandis
+      url: https://www.linkedin.com/in/juan-jose-arlandis/
+
+- comment: "// ===== RESUMEN (typed.js) ====="
+
+- key: Resumen
+  value:
+    - Aspirante a ingeniero Telco con pasión por Blockchain
+    - Meta ▸ combinar Telecomunicaciones + Blockchain
+    - Autodidacta de IA y tecnologías descentralizadas
+  typed: true
+
+- comment: "// ===== HABILIDADES ====="
+
+- key: Habilidades
+  value:
+    - Python
+    - MATLAB
+    - C++
+    - Solidity
+    - React / React Native
+    - Swift
+    - Maven / Gradle
+    - Inteligencia Artificial
+    - Teamwork
+    - Troubleshooting
+    - Problem-solving
+    - Comunicación
+    - Customer Service
+    - Social Media
+    - Public Speaking
+
+- comment: "// ===== IDIOMAS ====="
+
+- key: Idiomas
+  value:
+    - key: Inglés
+      value: Nivel intermedio (B2 Cambridge FIRST)
+    - key: Francés
+      value: Nivel básico
+
+- comment: "// ===== EXPERIENCIA ====="
+
+- key: Experiencia
+  value:
+    - key: Profesor de Blockchain y Criptomonedas
+      value: "Tradenado.net — Ene 2022 – Sep 2022"
+    - key: Creador de contenido en Twitter
+      value: "Cuenta personal — 2020 – Ene 2023"
+    - key: Inversor en Criptomonedas
+      value: "Freelancer — 2019"
+    - key: Emprendedor en Comercio Electrónico
+      value: "Freelancer — 2019 – 2020"
+    - key: Fotógrafo
+      value: "Freelancer — 2018"
+
+- comment: "// ===== EDUCACIÓN ====="
+
+- key: Educación
+  value:
+    - key: Ingeniería de Telecomunicaciones
+      value: "Universidad Politécnica de Madrid (ETSIT) — 2018 – Actualidad"
+    - key: Bachillerato Ciencias
+      value: "Colegio Virgen de Mirasierra — 2016 – Jun 2018 · Nota media 9"
+
+- comment: "// ===== PROYECTOS ====="
+
+- key: Proyectos
+  value:
+    - Estudio autodidacta de Machine Learning y modelos open-source
+    - Investigación de IA en el ecosistema Bittensor
+    - Programación en Solidity y despliegue de smart-contracts
+    - Diseño de tiendas Shopify (modelo Dropshipping)
+    - Investigación DeFi en Ethereum, Polkadot, Cardano
+
+- comment: "// ===== CERTIFICADOS & CURSOS ====="
+
+- key: Certificados y cursos
+  value:
+    - value: Corda For Business Professional
+      url: https://bit.ly/3KWks2i
+    - value: IBM Blockchain Essentials V2
+      url: https://bit.ly/47LvfG9
+    - Introduction to DLTs and Overledger (QNT)
+    - value: SQL HackerRank Level 3
+      url: https://bit.ly/3PfyKh2
+    - value: Python HackerRank Level 4
+      url: https://bit.ly/3PfyKh2
+    - value: MATLAB Onramp
+      url: https://bit.ly/44oKtOr

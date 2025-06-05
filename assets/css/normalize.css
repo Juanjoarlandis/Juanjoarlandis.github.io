@@ -1,0 +1,522 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi CV con Foto de Perfil</title>
+  <!-- 1. Meta viewport para móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 2. Normalize.css v8.0.1 -->
+  <!-- Copia completa de normalize.css tal cual la descargaste -->
+  <style>
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin en Firefox y Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox y IE.
+ * 1. Remove the inheritance of text transform en Firefox.
+ */
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS y Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding en Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by la regla anterior.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding en Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping en Edge y IE.
+ * 2. Correct the color inheritance from `fieldset` elements en IE.
+ * 3. Remove the padding para no sorprenderse al quitarlo en todos los browsers.
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment en Chrome, Firefox y Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove la scroll bar vertical por defecto en IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing en IE 10.
+ * 2. Remove the padding en IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment y decrement buttons en Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance en Chrome y Safari.
+ * 2. Correct the outline style en Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding en Chrome y Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types en iOS y Safari.
+ * 2. Change font properties a `inherit` en Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add la correcta display en Edge, IE 10+ y Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add la correcta display en todos los browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add la correcta display en IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add la correcta display en IE 10.
+ */
+[hidden] {
+  display: none;
+}
+  </style>
+
+  <!-- 3. Variables CSS de color y estilos propios responsivos -->
+  <style>
+:root {
+  /* ------------- Variables de color ------------- */
+  --oc-white: #ffffff;
+  --oc-white-rgb: 255, 255, 255;
+  --oc-black: #000000;
+  --oc-black-rgb: 0, 0, 0;
+
+  /* ... (aquí podrías incluir todas las variables de --oc-gray-*, --oc-red-*, etc., si las necesitas) */
+
+  /* Variables específicas de tu tema (Jekyll) */
+  --color-bg: var(--oc-{{ site.color_bg  | default: 'gray-9' }});
+  --color-punct: var(--oc-{{ site.color_punct | default: 'green-9' }});
+  --color-key: var(--oc-{{ site.color_key | default: 'green-4' }});
+  --color-value: var(--oc-{{ site.color_value | default: 'green-4' }});
+  --color-hover: var(--oc-{{ site.color_hover | default: 'green-5' }});
+}
+
+/* -----------------------------------
+   Estilos generales para todo el CV
+   ----------------------------------- */
+body {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-punct);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-key);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p, li, a, span {
+  color: var(--color-value);
+}
+
+/* -----------------------------------
+   3.1. Bloque de imagen de perfil
+   ----------------------------------- */
+.perfil-container {
+  width: 100%;
+  max-width: 200px;         /* No exceder 200px en pantallas grandes */
+  margin: 1rem auto;        /* Centrar horizontal y espacio arriba/abajo */
+  text-align: center;
+}
+
+.perfil-img {
+  display: block;
+  width: 100%;              /* Ocupa todo el ancho del contenedor */
+  height: auto;             /* Mantiene proporción (o recorta con object-fit) */
+  max-width: 200px;         /* Nunca supere esta medida en desktop */
+  border: 3px solid var(--color-key); /* Borde verde (mismo color-key) */
+  object-fit: cover;        /* Si la foto no es exactamente cuadrada, recorta */
+  border-radius: 0;         /* Asegura que no haya esquinas redondeadas */
+}
+
+/* -----------------------------------
+   3.2. Zona de JSON con scroll horizontal si hace falta
+   ----------------------------------- */
+#json {
+  width: 100%;
+  overflow-x: auto;         /* Permite scroll lateral si el JSON es muy ancho */
+  padding: 0 0.5rem;        /* Un poco de padding en móvil */
+  box-sizing: border-box;
+}
+
+.my.ms {
+  word-break: break-word;    /* Evita que cadenas largas rompan el diseño */
+  padding: 0.25rem 0;
+}
+
+/* -----------------------------------
+   3.3. Media Queries para móviles muy pequeños
+   ----------------------------------- */
+@media (max-width: 480px) {
+  /* Reducir el ancho máximo de la imagen de perfil en pantallas ≤ 480px */
+  .perfil-container {
+    max-width: 150px;
+    margin: 0.75rem auto;
+  }
+  .perfil-img {
+    max-width: 150px;
+    border-width: 2px;       /* Borde un poco más delgado en móvil estrecho */
+  }
+  /* Ajustar padding en bloques de JSON */
+  #json {
+    padding: 0 0.25rem;
+  }
+  /* Reducir un poco la fuente general */
+  body {
+    font-size: 0.9rem;       /* Aprox. 14px en pantallas muy pequeñas */
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- 4. Bloque HTML con la foto de perfil -->
+  <div class="perfil-container">
+    <img
+      src="{{ 'assets/images/perfil.jpg' | relative_url }}"
+      alt="Foto de perfil"
+      class="perfil-img"
+    />
+  </div>
+
+  <!-- 5. Aquí va tu bloque JSON completo -->
+  <div id="json">
+    {% assign comma = site.commas == false | default: true | where_exp: "x", "x == false" | size | plus: 0 %}
+    {% case site.quotes %}
+      {% when 'keys' %}
+        {% assign quote_key = '"' %}
+        {% assign quote_value = '' %}
+      {% when 'values' %}
+        {% assign quote_key = '' %}
+        {% assign quote_value = '"' %}
+      {% when false %}
+        {% assign quote_key = '' %}
+        {% assign quote_value = '' %}
+      {% else %}
+        {% assign quote_key = '"' %}
+        {% assign quote_value = '"' %}
+    {% endcase %}
+
+    {% if site.newtab == true %}
+      {% assign tab = '_blank' %}
+    {% else %}
+      {% assign tab = '_self' %}
+    {% endif %}
+
+    {% for pair in site.data.json %}
+
+      {%- if pair.comment -%}
+        <div class="comment ms">{{ pair.comment }}</div>
+        {% continue %}
+      {%- endif -%}
+
+      <div class="my ms">
+        {% if pair.typed -%}
+          <div id="strings">
+            {% for value in pair.value %}<span>{{ value }}</span>{% endfor %}
+          </div>
+          {{ quote_key }}<span class="key">{{ pair.key }}</span>{{ quote_key }}:
+          {{ quote_value }}<span class="value"><span id="typed"></span></span>{{ quote_value }}
+
+        {%- elsif pair.value.first.key -%}
+          {{ quote_key }}<span class="key">{{ pair.key }}</span>{{ quote_key }}: [
+          {% for value in pair.value %}
+            {% if value.url -%}
+            <p class="ms">
+              {{ quote_key }}<span class="key">{{ value.key }}</span>{{ quote_key }}:
+              {{ quote_value }}<a class="value" href="{{ value.url | relative_url }}" target="{{ tab }}">{{ value.value }}</a>{{ quote_value }}{% unless forloop.last %}{{ "," }}{% endunless %}
+            </p>
+            {% else -%}
+            <p class="ms">
+              {{ quote_key }}<span class="key">{{ value.key }}</span>{{ quote_key }}:
+              {{ quote_value }}<span class="value">{{ value.value }}</span>{{ quote_value }}{% unless forloop.last %}{{ "," }}{% endunless %}
+            </p>
+            {% endif -%}
+          {% endfor %}
+          ]
+
+        {%- elsif pair.value.first -%}
+          {{ quote_key }}<span class="key">{{ pair.key }}</span>{{ quote_key }}: [
+          {% for value in pair.value %}
+            {% if value.url -%}
+            <p class="ms">{{ quote_value }}<a class="value" href="{{ value.url | relative_url }}" target="{{ tab }}">{{ value.value }}</a>{{ quote_value }}{% unless forloop.last %}{{ "," }}{% endunless %}</p>
+            {% else -%}
+            <p class="ms">{{ quote_value }}<span class="value">{{ value }}</span>{{ quote_value }}{% unless forloop.last %}{{ "," }}{% endunless %}</p>
+            {% endif -%}
+          {% endfor %}
+          ]
+
+        {%- elsif pair.url -%}
+          {{ quote_key }}<span class="key">{{ pair.key }}</span>{{ quote_key }}:
+          {{ quote_value }}<a class="value" href="{{ pair.url | relative_url }}" target="{{ tab }}">{{ pair.value }}</a>{{ quote_value }}
+
+        {%- else -%}
+          {{ quote_key }}<span class="key">{{ pair.key }}</span>{{ quote_key }}:
+          {{ quote_value }}<span class="value">{{ pair.value }}</span>{{ quote_value }}
+        {% endif %}{% unless forloop.last %}{{ "," }}{% endunless %}
+      </div>
+
+    {% endfor %}
+  </div>
+
+</body>
+</html>
