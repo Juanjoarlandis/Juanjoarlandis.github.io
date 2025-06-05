@@ -23,7 +23,7 @@
   <!-- Typed.js (para animación de escritura) -->
   <script src="assets/js/typed.umd.js"></script>
 
-  <!-- Estilos adicionales para la imagen de perfil, animación, cursor parpadeante y botón -->
+  <!-- ===== Estilos adicionales ===== -->
   <style>
     /* ================================
        Botón de silenciar/activar sonido
@@ -64,9 +64,12 @@
        ================================ */
     #json .comment,
     #json .my {
+      /* Ocultamos inicialmente y forzamos overflow:hidden para reservar espacio */
       opacity: 0;
       transition: opacity 0.3s ease-in;
-      overflow: hidden; /* Mantener espacio antes de tipeo */
+      overflow: hidden;
+      white-space: pre-wrap;      /* para que respete saltos de línea y espacios si hubiera */
+      display: block;             /* cada bloque de texto mantendrá su propio flow */
     }
 
     #json .comment.visible,
@@ -75,11 +78,13 @@
     }
 
     /* ================================
-       Cursor estilo consola ▊ (blinking)
+       Cursor estilo consola ▊ (parpadeo)
        ================================ */
     .typed-cursor {
+      display: inline-block;      /* ¡IMPORTANTE! Sin esto, el cursor se queda en bloque separado */
       font-weight: bold;
       animation: consoleBlink 1s steps(2, end) infinite;
+      vertical-align: bottom;     /* opcional, ajusta la posición vertical del cursor respecto al texto */
     }
     @keyframes consoleBlink {
       0%, 100% {
@@ -91,6 +96,20 @@
         color: var(--oc-green-6);
       }
     }
+
+    /* ================================
+       Márgenes para sangrías (si usas .ms, .mt, etc.)
+       ================================ */
+    .ms { margin-left: 1.5rem; }
+    .mt { margin-top: 1.5rem; }
+
+    /* ================================
+       Colores para llaves, valores y comentarios
+       (ya vienen en tu stylesheet principal)
+       ================================ */
+    .key   { color: #9cdcfe; }  /* ejemplo: color de las “keys” */
+    .value { color: #ce9178; }  /* ejemplo: color de los “values”  */
+    .comment { color: #6a9955; }/* ejemplo: color de comentarios     */
   </style>
 </head>
 
@@ -161,7 +180,6 @@
 
       <!-- ===== HABILIDADES ===== -->
       <div class="comment ms">// ===== HABILIDADES =====</div>
-
       <div class="my ms">
         "<span class="key">Habilidades</span>": [
         <p class="ms">"<span class="value">Python</span>",</p>
@@ -184,7 +202,6 @@
 
       <!-- ===== IDIOMAS ===== -->
       <div class="comment ms">// ===== IDIOMAS =====</div>
-
       <div class="my ms">
         "<span class="key">Idiomas</span>": [
         <p class="ms">
@@ -200,7 +217,6 @@
 
       <!-- ===== EXPERIENCIA ===== -->
       <div class="comment ms">// ===== EXPERIENCIA =====</div>
-
       <div class="my ms">
         "<span class="key">Experiencia</span>": [
         <p class="ms">
@@ -228,7 +244,6 @@
 
       <!-- ===== EDUCACIÓN ===== -->
       <div class="comment ms">// ===== EDUCACIÓN =====</div>
-
       <div class="my ms">
         "<span class="key">Educación</span>": [
         <p class="ms">
@@ -244,7 +259,6 @@
 
       <!-- ===== PROYECTOS ===== -->
       <div class="comment ms">// ===== PROYECTOS =====</div>
-
       <div class="my ms">
         "<span class="key">Proyectos</span>": [
         <p class="ms">"<span class="value">Estudio autodidacta de Machine Learning y modelos open-source</span>",</p>
@@ -257,7 +271,6 @@
 
       <!-- ===== CERTIFICADOS & CURSOS ===== -->
       <div class="comment ms">// ===== CERTIFICADOS & CURSOS =====</div>
-
       <div class="my ms">
         "<span class="key">Certificados y cursos</span>": [
         <p class="ms">"<a class="value" href="https://bit.ly/3KWks2i" target="_blank">Corda For Business Professional</a>",</p>
@@ -277,10 +290,13 @@
        ================================ -->
   <audio id="type-sound" src="assets/sounds/typing.mp3" preload="auto" loop></audio>
 
-  <!-- Script para animar la escritura sección a sección, sonido en loop y botón de silencio -->
+  <!-- ===================================================
+       Script para animar la escritura sección a sección,
+       sonido en loop y botón de silencio
+       =================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // ========== Variables de velocidad ==========
+      // ===== Variables de velocidad =====
       const TYPE_SPEED_SCROLL = 5;  // Velocidad de tecleo en el scroll JSON (ms)
 
       // Elementos de audio y botón
@@ -363,7 +379,7 @@
         new Typed(el, {
           strings: [el.getAttribute('data-typed-html')],
           typeSpeed: TYPE_SPEED_SCROLL,
-          showCursor: true,           // Ahora mostramos cursor
+          showCursor: true,           // Mostramos cursor
           cursorChar: '▊',            // Carácter del cursor
           contentType: 'html',
           onComplete: () => {
@@ -377,7 +393,6 @@
             if (nextIndex < codeElems.length && intersecting.has(siguiente)) {
               startTyping(siguiente);
             } else {
-              // Si no hay siguiente visible o ya acabó, pausamos el sonido
               audioTecla.pause();
             }
           }
