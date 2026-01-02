@@ -17,11 +17,19 @@
 <body>
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="brand" href="{{ '/' | relative_url }}">Juan José Arlandis</a>
+      <a class="brand" href="/">Juan José Arlandis</a>
     </div>
   </header>
   <main class="page">
-    {{ content }}
+    <section class="error">
+  <div class="error-card">
+    <p class="eyebrow">404</p>
+    <h1>Esta página no existe</h1>
+    <p class="muted">Si has llegado aquí por un enlace, puedo corregirlo.</p>
+    <a class="btn primary" href="/">Volver al inicio</a>
+  </div>
+</section>
+
   </main>
 </body>
 </html>

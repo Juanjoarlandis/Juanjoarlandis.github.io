@@ -2,10 +2,11 @@
 layout: default
 ---
 
-{% assign return = site.url | append: site.baseurl | split: '//' | slice: 1 -%}
-
-<div class="error">
-    <h1>404</h1>
-    <p>Page not found</p>
-    <p class="mt"><a href="{{ site.url | append: site.baseurl }}">{{ return }}</a></p>
-</div>
+<section class="error">
+  <div class="error-card">
+    <p class="eyebrow">404</p>
+    <h1>Esta página no existe</h1>
+    <p class="muted">Si has llegado aquí por un enlace, puedo corregirlo.</p>
+    <a class="btn primary" href="{{ '/' | relative_url }}">Volver al inicio</a>
+  </div>
+</section>
