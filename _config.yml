@@ -31,9 +31,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - hacked-jekyll.gemspec
-  - _sass/
-  - _layouts/default.html # Si sólo usas _layouts/home.html
-  - _layouts/404.html # Si no quieres página 404 personalizada
   - .github/ # Ajusta según tu estructura real
   - .gitignore
   - .nojekyll
@@ -56,4 +53,3 @@ sass:
 #       type: "pages"
 #     values:
 #       layout: "default"
-
