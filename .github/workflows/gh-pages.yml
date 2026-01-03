@@ -1,33 +1,53 @@
-# .github/workflows/build-jekyll.yml
-
-name: CI / Build Jekyll
+name: Deploy Jekyll to GitHub Pages
 
 on:
   push:
     branches:
-      - main # asegúrate de que coincide con la rama que usas para Pages
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 1️⃣ Checkout del repositorio
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: 2️⃣ Setup Ruby y Bundler
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2.2" # pincha una versión concreta (no “3.x”)
-          bundler-cache: true # cachea ~/.bundle para acelerar instal.
+          ruby-version: "3.2.2"
+          bundler-cache: true
 
-      - name: 3️⃣ Instalar las gemas (incluido hacked-jekyll)
-        run: bundle install
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
 
-      - name: 4️⃣ Generar el sitio con Jekyll
-        run: bundle exec jekyll build --source . --destination docs
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
-      - name: 5️⃣ Mostrar contenido de docs/ (solo para debug)
-        run: |
-          echo "=== Contenido de docs/ después del build ==="
-          ls -R docs/
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
